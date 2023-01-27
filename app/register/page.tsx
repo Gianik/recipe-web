@@ -140,7 +140,7 @@ export default function LoginPage() {
                                     Register
                                 </button>
 
-                                <p className="text-xs mt-4 text-center">Have account already? Login</p>
+                                <p className="text-xs mt-4 text-center">Have account already? <Link href={"/login"} className="text-blue-500">Login</Link></p>
                           
                             </form>
                         </div>
