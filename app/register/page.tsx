@@ -4,7 +4,8 @@ import React, { FormEvent, useState } from "react";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/solid";
 import { useRouter } from "next/navigation";
 import PocketBase from 'pocketbase';
-
+import Link from "next/link";
+import {validate} from "./validate"
 
 export default function LoginPage() {
 
@@ -14,15 +15,18 @@ export default function LoginPage() {
     const [fullName, setFullName] = useState("");
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-    const [errorMessage,setErrorMessage] = useState("Test Error")
+    const [errorMessage,setErrorMessage] = useState("")
     //handle the form submit to login user
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+        
         e.preventDefault()
         const pb = new PocketBase('http://127.0.0.1:8090');
-
-        let valid = validateInput()
-
-        if (valid == true) {
+        email.trim()
+        password.trim()
+        confirmPassword.trim()
+        fullName.trim()
+        let valid: any = validate({ email, password, confirmPassword, fullName })
+        if (valid.validate == true) {
             const record = await pb.collection('users').create({
                 name: fullName,
                 email: email,
@@ -31,20 +35,27 @@ export default function LoginPage() {
                 role: 'user'
             }).then(data => {
                 console.log(data)
-            })
-                .catch(error => {
-                    console.log(error)
-                })
                 setEmail("")
                 setPassword("")
                 setConfirmPassword("")
                 setFullName("")
+            })
+                .catch(error => {
+                    console.log(error.data.code)
+                    if (error.data.code == 400) {
+                        setErrorMessage("Email already exists please login or try another email")
+                    }
+                    else {
+                        setErrorMessage("Server error")
+                    }
+
+                })
+
+        } else {
+            setErrorMessage(valid.message)
         }
 
-        setEmail("")
-        setPassword("")
-        setConfirmPassword("")
-        setFullName("")
+
     };
     //handle showPassword State
     const handleShowPassword = (e:any) => {
@@ -62,7 +73,7 @@ export default function LoginPage() {
     //change showConfirmPassword state
     const handleShowConfirmPassword = (e:any) => {
         e.preventDefault()
-        if (showPassword === true) {
+        if (showConfirmPassword === true) {
             setShowConfirmPassword(false)
             return
         }
@@ -72,10 +83,6 @@ export default function LoginPage() {
         }
 
     };
-    //validate input of user
-    const validateInput = () => {
-        return false
-    }
 
 
     return (
@@ -84,15 +91,15 @@ export default function LoginPage() {
                 {/* login container */}
                 <div className="bg-[#363740] text-[#A4A6B3] flex rounded-2xl shadow-lg max-w-3xl p-5 ">
                     {/* form div  */}
-                    <div className="md:w-50 px-4 divide-y">
+                    <div className="md:w-50  max w-[205px]  px-4 divide-y">
                         <div>
                             <h2 className="font-bold text-2xl">Recipe Blog</h2>
                         </div>
                         <div>
                             <p className="text-xs mt-4">Register to Recipe Blog</p>
-                            {/* <div>
-                                <h3>{ errorMessage }</h3>
-                            </div> */}
+                            <div className="relative flex">
+                                <h6 className="text-center break-normal text-red-600 ">{ errorMessage }</h6>
+                            </div>
 
                             <form onSubmit={handleSubmit} className="flex flex-col gap-4 mt-2" noValidate>
                                 <input
@@ -105,7 +112,7 @@ export default function LoginPage() {
                                 <div className="relative">
                                     <input
                                         type={showPassword ? "text": "password"}
-                                        className="p-1 rounded-lg text-black"
+                                        className="p-1 rounded-lg text-black w-full"
                                         value={password}
                                         placeholder="Password"
                                         onChange={(e) => setPassword(e.target.value)}
@@ -115,7 +122,7 @@ export default function LoginPage() {
                                 <div className="relative">
                                     <input
                                         type={showConfirmPassword ? "text": "password"}
-                                        className="p-1 rounded-lg text-black"
+                                        className="p-1 rounded-lg text-black w-full"
                                         value={confirmPassword}
                                         placeholder="Confirm Password"
                                         onChange={(e) => setConfirmPassword(e.target.value)}
@@ -133,7 +140,7 @@ export default function LoginPage() {
                                     Register
                                 </button>
 
-                                <p className="text-xs mt-4">Have account already? Login</p>
+                                <p className="text-xs mt-4 text-center">Have account already? Login</p>
                           
                             </form>
                         </div>
