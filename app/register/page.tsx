@@ -32,7 +32,7 @@ export default function Register() {
         let valid: any = validate({ email, password, confirmPassword, fullName })
         if (valid.validate == true) {
             setErrorMessage("")
-            const record = await pb.collection('users').create({
+            await pb.collection('users').create({
                 name: fullName,
                 email: email,
                 password: password,
@@ -44,8 +44,9 @@ export default function Register() {
                 setPassword("")
                 setConfirmPassword("")
                 setFullName("")
-                    notify()
-                    router.push('/login',)
+                notify()
+                router.push('/login')
+
             })
                 .catch(error => {
                     console.log(error.data.code)
@@ -146,6 +147,7 @@ export default function Register() {
                                     />
                                     <button onClick={handleShowConfirmPassword}>{showConfirmPassword ? (<EyeIcon className="w-4 h-4 absolute top-1/2 right-3 -translate-y-1/2" />) : (<EyeSlashIcon className="w-4 h-4 absolute top-1/2 right-3 -translate-y-1/2" />)}</button>
                                 </div>
+                                <p className=" mt-1 text-center text-[12px] leading-3 ">-Password should atleast contain five characters</p>
                                 <input
                                     type="text"
                                     className="p-1 rounded-lg text-black"
