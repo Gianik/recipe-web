@@ -3,7 +3,9 @@
 import React, { FormEvent, useState } from "react"
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/solid";
 import { useRouter } from "next/navigation"
-
+import { toast,ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Link from "next/link";
 
 
 export default function LoginPage(props:any) {
@@ -24,6 +26,7 @@ export default function LoginPage(props:any) {
 
   return (
       <div>
+          <ToastContainer/>
           <section className="bg-gray-400 min-h-screen flex items-center justify-center">
               {/* login container */}
               <div className="bg-[#363740] text-[#A4A6B3] flex rounded-2xl shadow-lg max-w-3xl p-5 ">
@@ -56,7 +59,7 @@ export default function LoginPage(props:any) {
                                 Login 
                             </button>
 
-                            <p className="text-xs mt-4">No account yet? Register One Now</p>
+                            <p className="text-xs mt-4">No account yet? <Link href={"/register"} className="text-blue-500">Register One Now</Link></p>
                           
                           </form>
                           </div>
