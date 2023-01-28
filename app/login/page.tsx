@@ -6,7 +6,8 @@ import { useRouter } from "next/navigation"
 
 
 
-export default function LoginPage() {
+export default function LoginPage(props:any) {
+
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
@@ -18,6 +19,7 @@ export default function LoginPage() {
         console.log("Email:" + email)
         console.log("Password:"+password)
     }
+
 
 
   return (
