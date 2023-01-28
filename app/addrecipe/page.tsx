@@ -8,7 +8,7 @@ import {  PlusCircleIcon} from "@heroicons/react/24/solid";
 
 import Image from 'next/image'
 import Link from "next/link";
-function HomePage({
+function AddRecipe({
     children,
   }: {
     children: React.ReactNode
@@ -81,4 +81,4 @@ function HomePage({
 
 
 
-export default HomePage
+export default AddRecipe
