@@ -5,17 +5,21 @@ import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/solid";
 import { useRouter } from "next/navigation";
 import PocketBase from 'pocketbase';
 import Link from "next/link";
-import {validate} from "./validate"
+import { validate } from "./validate"
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import LoginPage from "../login/page"
+export default function Register() {
 
-export default function LoginPage() {
-
+    const router = useRouter();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword,setConfirmPassword] = useState("")
     const [fullName, setFullName] = useState("");
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-    const [errorMessage,setErrorMessage] = useState("")
+    const [errorMessage, setErrorMessage] = useState("")
+    
     //handle the form submit to login user
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         
@@ -24,37 +28,38 @@ export default function LoginPage() {
         email.trim()
         password.trim()
         confirmPassword.trim()
-        fullName.trim()
-        let valid: any = validate({ email, password, confirmPassword, fullName })
-        if (valid.validate == true) {
-            const record = await pb.collection('users').create({
-                name: fullName,
-                email: email,
-                password: password,
-                passwordConfirm: confirmPassword,
-                role: 'user'
-            }).then(data => {
-                console.log(data)
-                setEmail("")
-                setPassword("")
-                setConfirmPassword("")
-                setFullName("")
-            })
-                .catch(error => {
-                    console.log(error.data.code)
-                    if (error.data.code == 400) {
-                        setErrorMessage("Email already exists please login or try another email")
-                    }
-                    else {
-                        setErrorMessage("Server error")
-                    }
+        router.push('/login',)
+        // fullName.trim()
+        // let valid: any = validate({ email, password, confirmPassword, fullName })
+        // if (valid.validate == true) {
+        //     setErrorMessage("")
+        //     const record = await pb.collection('users').create({
+        //         name: fullName,
+        //         email: email,
+        //         password: password,
+        //         passwordConfirm: confirmPassword,
+        //         role: 'user'
+        //     }).then(data => {
+        //         console.log(data)
+        //         setEmail("")
+        //         setPassword("")
+        //         setConfirmPassword("")
+        //         setFullName("")
+        //     })
+        //         .catch(error => {
+        //             console.log(error.data.code)
+        //             if (error.data.code == 400) {
+        //                 setErrorMessage("Email already exists please login or try another email")
+        //             }
+        //             else {
+        //                 setErrorMessage("Server error")
+        //             }
 
-                })
+        //         })
 
-        } else {
-            setErrorMessage(valid.message)
-        }
-
+        // } else {
+        //     setErrorMessage(valid.message)
+        // }
 
     };
     //handle showPassword State
@@ -83,10 +88,22 @@ export default function LoginPage() {
         }
 
     };
-
+    const notify = () => {
+        toast.success("Success Notification !", {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+    }
 
     return (
         <div>
+            <ToastContainer />
             <section className="bg-gray-400 min-h-screen flex items-center justify-center">
                 {/* login container */}
                 <div className="bg-[#363740] text-[#A4A6B3] flex rounded-2xl shadow-lg max-w-3xl p-5 ">
@@ -149,6 +166,7 @@ export default function LoginPage() {
                 </div>
               
             </section>
+            
         </div>
     );
 };
