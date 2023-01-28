@@ -14,7 +14,7 @@ export const validate = ({ email, password, confirmPassword, fullName }: any) =>
     }
 
     if (password == "" || confirmPassword == "") { // validate password
-        return { validate: false, message: "Password and Confirm Password cannot be null" }
+        return { validate: false, message: "Password and Confirm Password cannot be empty" }
     }
     else if (password.length < 5 || confirmPassword.length < 5) {
         return { validate: false, message: "Password should at least contain 5 characters" }
