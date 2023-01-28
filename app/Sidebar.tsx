@@ -1,20 +1,67 @@
-const SideBar = () => {
-    return (
-        <div className="fixed top-0 left-0 h-screen w-16 m-0 flex flex-col bg-gray-900 text-white sm:text-green-500">
-            <i>A</i>
-            <i>B</i>
-            <i>C</i>
-            <i>D</i>
-            <i>E</i>
-        </div>
-    );
-};
+import { forwardRef } from "react";
+import Link from "next/link";
+import {  UserIcon,UsersIcon, CakeIcon } from "@heroicons/react/24/solid";
+import { useRouter } from "next/navigation"
 
-// const SideBarIcon = ({ icon }) => (
-//     <div className="sidebar-icon">
-//         {icon}
-//     </div>
-    
-// );
 
-export default SideBar
+const SideBar = forwardRef(({ showNav }:any, ref:any) => {
+  const router = useRouter();
+
+  return (
+    <div ref={ref} className="fixed w-56 h-full bg-white shadow-sm">
+      <div className="flex justify-center mt-6 mb-14">
+        RECIPE BLOG
+        {/* <picture>
+          <img
+            className="w-32 h-auto"
+            src="../public/maxpepe.jpg"
+            alt="company logo"
+          />
+        </picture> */}
+      </div>
+
+      <div className="flex flex-col divide-y">
+        <Link href="/login">
+          <div
+            className={`pl-6 py-3 mx-5 rounded text-center cursor-pointer mb-3 flex items-center transition-colors`}
+          >
+            <div className="mr-2">
+              <CakeIcon className="h-5 w-5" />
+            </div>
+            <div>
+              <p>Recipes</p>
+            </div>
+          </div>
+        </Link>
+        <Link href="#">
+          <div
+            className={`pl-6 py-3 mx-5 rounded text-center cursor-pointer mb-3 flex items-center transition-colors `}
+          >
+            <div className="mr-2">
+              <UsersIcon className="h-5 w-5" />
+            </div>
+            <div>
+              <p>Users</p>
+            </div>
+          </div>
+        </Link>
+        <Link href="#">
+          <div
+            className={`pl-6 py-3 mx-5 rounded text-center cursor-pointer mb-3 flex items-center transition-colors`}
+          >
+            <div className="mr-2">
+              <UserIcon className="h-5 w-5" />
+            </div>
+            <div>
+              <p>Proile</p>
+            </div>
+          </div>
+        </Link>
+      </div>
+    </div>
+  );
+});
+
+SideBar.displayName = "SideBar";
+
+export default SideBar;
