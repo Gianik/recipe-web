@@ -8,10 +8,11 @@ import Link from "next/link";
 import { validate } from "./validate"
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import LoginPage from "../login/page"
+
 export default function Register() {
 
     const router = useRouter();
+    const pb = new PocketBase('http://127.0.0.1:8090');
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword,setConfirmPassword] = useState("")
@@ -24,7 +25,6 @@ export default function Register() {
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         
         e.preventDefault()
-        const pb = new PocketBase('http://127.0.0.1:8090');
         email.trim()
         password.trim()
         confirmPassword.trim()

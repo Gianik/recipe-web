@@ -9,7 +9,7 @@ function HomePage() {
             
             <Sidebar />
             <h1 className="text-green-500 text font-bold"></h1>
-            <ToastContainer />
+            {/* <ToastContainer /> */}
       </div>
   )
 }
