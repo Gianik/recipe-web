@@ -33,7 +33,14 @@ export default function LoginPage(props:any) {
                 password,
             ).then(data => {
                 console.log(data.record)
-                localStorage.setItem('user', JSON.stringify(data.record))
+                
+                let userData = {
+                    avatar:data.record.avatar,
+                    id: data.record.id,
+                    name: data.record.name,
+                    role:data.record.role
+                }
+                localStorage.setItem('user', JSON.stringify(userData))
                 setEmail("")
                 setPassword("")
                 router.push('/')
