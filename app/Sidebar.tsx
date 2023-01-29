@@ -12,11 +12,11 @@ const SideBar = forwardRef(({ showNav }:any, ref:any) => {
   return (
     <div ref={ref} className="fixed w-56 h-full bg-white shadow-sm">
       <div className="flex justify-center mt-6 mb-14">
-        RECIPE BLOG
+        <Link href={`/${user_id}`} >RECIPE BLOG</Link>
       </div>
 
       <div className="flex flex-col divide-y">
-        <Link href={`/${user_id}`}>
+        <Link href='/adminrecipes'>
           <div
             className={`pl-6 py-3 mx-5 rounded text-center cursor-pointer mb-3 flex items-center transition-colors`}
           >
