@@ -1,22 +1,35 @@
 'use client'
 
-import { useState, FormEvent } from "react";
-
+import { useState, FormEvent,useEffect } from "react";
+import { useSearchParams } from 'next/navigation'
 import {  PlusCircleIcon,MinusCircleIcon} from "@heroicons/react/24/solid";
-import Dashboard from "../dashboard";
+import Dashboard from "../../../../dashboard";
 import { useRouter } from "next/navigation"
 import PocketBase from 'pocketbase';
-import { validate } from './validate';
-import { toastError, toastSuccess } from '../../components/toast';
+import { validate } from '../../../../addrecipe/validate';
+import { toastError, toastSuccess } from '../../../../../components/toast';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-function AddRecipe() {
+function EditRecipe(params:any) {
     const router = useRouter();
-    const pb = new PocketBase('http://127.0.0.1:8090');    
-
+    const pb = new PocketBase('http://127.0.0.1:8090');
+    const searchParams = useSearchParams();
+    // fetchData()
     const [ingredientlist, setIngredientlist] = useState([{ Ingredient: "" }]);
     const [recipeName,setRecipeName] = useState("")
-    const [instructionList, setInstructionList] = useState([{ Instruction: ""}]);
+    const [instructionList, setInstructionList] = useState([{ Instruction: "" }]);
+    useEffect(() => {
+      fetchData()
+    }, []);
+  
+     async function fetchData() {
+       console.log("test")
+       const data = await pb.collection('recipes').getOne(`${params.params.editrecipeId}`,{ '$autoCancel': false } )
+       console.log(data.recipe_name)
+       setRecipeName(data.recipe_name)
+       setIngredientlist(data.recipe_ingredients)
+       setInstructionList(data.recipe_instructions)
+    }
 
       // handle input change for Ingredients and Instructions
     const handleInputChange = (e: any, index: any) => {
@@ -62,16 +75,16 @@ function AddRecipe() {
     let valid:any = validate({recipeName,ingredientlist,instructionList})
     console.log(valid)
     if (valid == true) {
-        await pb.collection('recipes').create({
+        console.log(params.params.editrecipeId)
+        await pb.collection('recipes').update(`${params.params.editrecipeId}`,{
         recipe_name: recipeName,
-        recipe_author: user_id,
         recipe_ingredients: ingredientlist ,
         recipe_instructions:  instructionList ,
 
         }).then(data => {
           console.log(data)
-          // toastSuccess('Recipe Added!')
-          router.push(`/${user_id}`)
+          toastSuccess('Recipe Updated!')
+          router.push(`recipe/${params.params.editrecipeId}`)
         })
           .catch(error => {
             console.log(error)
@@ -81,8 +94,6 @@ function AddRecipe() {
     }
 
   };
-      
-    
       return (
         <>
           <ToastContainer />
@@ -158,4 +169,4 @@ function AddRecipe() {
 
 
 
-export default AddRecipe
+export default EditRecipe
