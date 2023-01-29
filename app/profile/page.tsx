@@ -37,12 +37,12 @@ function AddRecipe(params:any) {
             router.push(`/${user_id}`)
         }).catch(error => {
             console.log(error)
-            // if (error.data.code == 404) {
-            //     toastError("User not found please try again")
-            // }
-            // else {
+            if (error.data.code == 404) {
+                toastError("User not found please try again")
+            }
+            else {
             toastError("Server Error please try again")
-            // }
+            }
         })
     }
 
