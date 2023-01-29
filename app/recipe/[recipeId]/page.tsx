@@ -27,7 +27,7 @@ export default async  function  HomePage({ params }: any){
                 <div className="flex mt-2 text-center justify-center">
                     <h1 className="font-bold pl-10 text-3xl mt-2">My Recipes</h1>
                     <Link href={`editrecipe/${recipe.id}`}><button className="bg-yellow-500 text-white ml-3 mt-4  px-2 rounded-lg flex"> Edit Recipe   <PencilSquareIcon className="w-6 h-6 pl-1 top-1/2 right-0 " /> </button></Link>
-                    <Link href='#'><button className="bg-red-500 text-white ml-3 mt-4  px-2 rounded-lg flex"> Delete Recipe   <TrashIcon className="w-6 h-6 pl-1 top-1/2 right-0 " /> </button></Link>
+                    <Link href={`deleterecipe/${recipe.id}`}><button className="bg-red-500 text-white ml-3 mt-4  px-2 rounded-lg flex"> Delete Recipe   <TrashIcon className="w-6 h-6 pl-1 top-1/2 right-0 " /> </button></Link>
                 </div>
                 <div className="flex  flex-grow items-center text-center justify-center gap-5 ml-[100px] m-[100px] mt-16 text-white">
                     <div  className="rounded-xl flex  flex-col grid-cols-1   bg-[#363740]  w-[200px] text-white shadow-sm  " >
