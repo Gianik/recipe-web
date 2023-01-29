@@ -61,7 +61,7 @@ function HomePage({
               </main>
               <div className="flex mt-2">
                   <h1 className="font-bold pl-10 text-3xl mt-2">My Recipes</h1>
-                  <Link href='#'><button className="bg-blue-800 text-white ml-3 mt-4  px-2 rounded-lg flex"> Add Recipe   <PlusCircleIcon className="w-6 h-6 pl-1 top-1/2 right-0 " /> </button></Link>
+                  <Link href='/addrecipe'><button className="bg-blue-800 text-white ml-3 mt-4  px-2 rounded-lg flex"> Add Recipe   <PlusCircleIcon className="w-6 h-6 pl-1 top-1/2 right-0 " /> </button></Link>
                 </div>
               <div className="grid lg:grid-cols-4 gap-5 ml-[100px] m-[100px] mt-16 text-white">
                 <div className="rounded bg-[#363740] h-40 w-[200px] text-center shadow-sm justify-center object-center">

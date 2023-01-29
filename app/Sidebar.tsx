@@ -2,7 +2,7 @@ import { forwardRef } from "react";
 import Link from "next/link";
 import {  UserIcon,UsersIcon, CakeIcon } from "@heroicons/react/24/solid";
 import { useRouter } from "next/navigation"
-
+import {Cog8ToothIcon} from "@heroicons/react/24/solid";
 
 const SideBar = forwardRef(({ showNav }:any, ref:any) => {
   const router = useRouter();
@@ -54,6 +54,18 @@ const SideBar = forwardRef(({ showNav }:any, ref:any) => {
             </div>
             <div>
               <p>Proile</p>
+            </div>
+          </div>
+        </Link>
+        <Link href="#">
+          <div
+            className={`pl-6 py-3 mx-5 rounded text-center cursor-pointer mb-3 flex items-center transition-colors`}
+          >
+            <div className="mr-2">
+              <Cog8ToothIcon className="h-4 w-4 mr-2" />
+            </div>
+            <div>
+              <p>Logout</p>
             </div>
           </div>
         </Link>
