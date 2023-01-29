@@ -23,9 +23,8 @@ function EditRecipe(params:any) {
     }, []);
   
      async function fetchData() {
-       console.log("test")
+
        const data = await pb.collection('recipes').getOne(`${params.params.editrecipeId}`,{ '$autoCancel': false } )
-       console.log(data.recipe_name)
        setRecipeName(data.recipe_name)
        setIngredientlist(data.recipe_ingredients)
        setInstructionList(data.recipe_instructions)
