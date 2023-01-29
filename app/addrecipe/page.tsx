@@ -130,7 +130,7 @@ function AddRecipe({
           >
             <div className="px-4 md:px-16">{children}</div>
                  
-              </main>
+          </main>
               <div className="  flex flex-col items-center justify-center text-white font-bold mb-[300px]">
                 <div className="rounded-xl bg-[#363740]  w-[300px] items-center text-center mt-10 ">
                       New Recipe
