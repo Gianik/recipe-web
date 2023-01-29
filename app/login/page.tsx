@@ -27,7 +27,7 @@ export default function LoginPage(props:any) {
         let valid: any = validate({ email, password })
         if (valid.validate == true) {
             setErrorMessage("")
-            const pb = new PocketBase(process.env.PB_LINK);
+            // const pb = new PocketBase(process.env.PB_LINK);
             await pb.collection('users').authWithPassword(
                 email,
                 password,
@@ -38,7 +38,8 @@ export default function LoginPage(props:any) {
                     avatar:data.record.avatar,
                     id: data.record.id,
                     name: data.record.name,
-                    role:data.record.role
+                    role: data.record.role,
+                    email:data.record.email
                 }
                 localStorage.setItem('user', JSON.stringify(userData))
                 setEmail("")
@@ -46,7 +47,7 @@ export default function LoginPage(props:any) {
                 router.push(`/${data.record.id}`)
 
             }).catch(error => {
-                if (error.data.code == 400) {
+                if (error.data.code == 400||error.data.code == 404) {
                     setErrorMessage("User not found please try again or register")
                 }
                 else {
