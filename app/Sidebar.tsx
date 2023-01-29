@@ -1,3 +1,5 @@
+'use client'
+
 import { forwardRef } from "react";
 import Link from "next/link";
 import {  UserIcon,UsersIcon, CakeIcon } from "@heroicons/react/24/solid";
@@ -5,8 +7,8 @@ import { useRouter } from "next/navigation"
 import {Cog8ToothIcon} from "@heroicons/react/24/solid";
 
 const SideBar = forwardRef(({ showNav }:any, ref:any) => {
-  const router = useRouter();
-
+  // const router = useRouter();
+  const user_id = JSON.parse(localStorage.getItem('user') || '').id
   return (
     <div ref={ref} className="fixed w-56 h-full bg-white shadow-sm">
       <div className="flex justify-center mt-6 mb-14">
@@ -14,7 +16,7 @@ const SideBar = forwardRef(({ showNav }:any, ref:any) => {
       </div>
 
       <div className="flex flex-col divide-y">
-        <Link href="/">
+        <Link href={`/${user_id}`}>
           <div
             className={`pl-6 py-3 mx-5 rounded text-center cursor-pointer mb-3 flex items-center transition-colors`}
           >

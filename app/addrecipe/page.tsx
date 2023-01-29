@@ -1,48 +1,23 @@
 'use client'
-// import Navbar from "./Navbar"
-import { useState, useEffect, Fragment, FormEvent } from "react";
-import SideBar from "../Sidebar";
-import TopBar from "../Topbar";
-import { Transition } from "@headlessui/react";
+
+import { useState, FormEvent } from "react";
+
 import {  PlusCircleIcon,MinusCircleIcon} from "@heroicons/react/24/solid";
-import Link from "next/link";
+import Dashboard from "../dashboard";
 import { useRouter } from "next/navigation"
 import PocketBase from 'pocketbase';
 import { validate } from './validate';
 import { toastError, toastSuccess } from '../../components/toast';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-function AddRecipe({
-    children,
-  }: {
-    children: React.ReactNode
-  }) {
+function AddRecipe() {
     const router = useRouter();
     const pb = new PocketBase('http://127.0.0.1:8090');    
-    const [showNav, setShowNav] = useState(true);
-    const [isMobile, setIsMobile] = useState(false);
+
     const [ingredientlist, setIngredientlist] = useState([{ Ingredient: "" }]);
     const [recipeName,setRecipeName] = useState("")
     const [instructionList, setInstructionList] = useState([{ Instruction: ""}]);
-    function handleResize() {
-        if (innerWidth <= 640) {
-          setShowNav(false);
-          setIsMobile(true);
-        } else {
-          setShowNav(true);
-          setIsMobile(false);
-        }
-      }
-    
-      useEffect(() => {
-        if (typeof window != undefined) {
-          addEventListener("resize", handleResize);
-        }
-    
-        return () => {
-          removeEventListener("resize", handleResize);
-        };
-      }, []);
+
       // handle input change for Ingredients and Instructions
     const handleInputChange = (e: any, index: any) => {
       
@@ -95,7 +70,8 @@ function AddRecipe({
 
         }).then(data => {
           console.log(data)
-          toastSuccess('Recipe Added!')
+          // toastSuccess('Recipe Added!')
+          router.push(`/${user_id}`)
         })
           .catch(error => {
             console.log(error)
@@ -110,27 +86,7 @@ function AddRecipe({
       return (
         <>
           <ToastContainer />
-          <TopBar showNav={showNav} setShowNav={setShowNav} />
-          <Transition
-            as={Fragment}
-            show={showNav}
-            enter="transform transition duration-[400ms]"
-            enterFrom="-translate-x-full"
-            enterTo="translate-x-0"
-            leave="transform duration-[400ms] transition ease-in-out"
-            leaveFrom="translate-x-0"
-            leaveTo="-translate-x-full"
-          >
-            <SideBar showNav={showNav} />
-          </Transition>
-          <main
-            className={`pt-16 transition-all duration-[400ms] ${
-              showNav && !isMobile ? "pl-56" : ""
-            }`}
-          >
-            <div className="px-4 md:px-16">{children}</div>
-                 
-          </main>
+            <Dashboard children={""} />
               <div className="  flex flex-col items-center justify-center text-white font-bold mb-[300px]">
                 <div className="rounded-xl bg-[#363740]  w-[300px] items-center text-center mt-10 ">
                       New Recipe

@@ -27,7 +27,7 @@ export default function LoginPage(props:any) {
         let valid: any = validate({ email, password })
         if (valid.validate == true) {
             setErrorMessage("")
-            const pb = new PocketBase('http://127.0.0.1:8090');
+            const pb = new PocketBase(process.env.PB_LINK);
             await pb.collection('users').authWithPassword(
                 email,
                 password,
@@ -43,7 +43,7 @@ export default function LoginPage(props:any) {
                 localStorage.setItem('user', JSON.stringify(userData))
                 setEmail("")
                 setPassword("")
-                router.push('/')
+                router.push(`/${data}`)
 
             }).catch(error => {
                 if (error.data.code == 400) {
