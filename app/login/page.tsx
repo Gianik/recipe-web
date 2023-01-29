@@ -43,7 +43,7 @@ export default function LoginPage(props:any) {
                 localStorage.setItem('user', JSON.stringify(userData))
                 setEmail("")
                 setPassword("")
-                router.push(`/${data}`)
+                router.push(`/${data.record.id}`)
 
             }).catch(error => {
                 if (error.data.code == 400) {
