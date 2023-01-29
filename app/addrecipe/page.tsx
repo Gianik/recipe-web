@@ -148,9 +148,7 @@ function AddRecipe() {
                         </button>
                       </form>
                 </div>
-
-                
-            </div>
+              </div>
             
         </>
       );
