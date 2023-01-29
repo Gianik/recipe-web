@@ -32,7 +32,7 @@ export default async  function  HomePage({ params }: any){
                       return (
                           <Link href={`/recipe/${x.id}`}>
                             <div key={i} className="rounded flex flex-col bg-[#363740] h-40 w-[200px] text-white text-center shadow-sm justify-center object-center" >
-                                <h2 className=" mt-[10px] text-center">{x.recipe_name}</h2>
+                                <h2 className=" mt-[10px] text-center">Recipe: {x.recipe_name}</h2>
                               </div>
                           </Link>
                     )
