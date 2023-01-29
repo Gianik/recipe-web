@@ -48,7 +48,7 @@ const SideBar = forwardRef(({ showNav }:any, ref:any) => {
               <UserIcon className="h-5 w-5" />
             </div>
             <div>
-              <p>Proile</p>
+              <p>Profile</p>
             </div>
           </div>
         </Link>
