@@ -5,10 +5,13 @@ import SideBar from "../Sidebar";
 import TopBar from "../Topbar";
 import { Transition } from "@headlessui/react";
 import {  PlusCircleIcon,MinusCircleIcon} from "@heroicons/react/24/solid";
-import Image from 'next/image'
 import Link from "next/link";
 import { useRouter } from "next/navigation"
 import PocketBase from 'pocketbase';
+import { validate } from './validate';
+import { toastError, toastSuccess } from '../../components/toast';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function AddRecipe({
     children,
   }: {
@@ -76,27 +79,37 @@ function AddRecipe({
       const handleInstructionAddClick = () => {
         setInstructionList([...instructionList, { Instruction: "" }]);
   };
-  const handleSubmit = async (e: any) => {
+  //handle submition of form
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     let user_id = JSON.parse(localStorage.getItem('user') || '').id
+    recipeName.trim()
+    let valid:any = validate({recipeName,ingredientlist,instructionList})
+    console.log(valid)
+    if (valid == true) {
+        await pb.collection('recipes').create({
+        recipe_name: recipeName,
+        recipe_author: user_id,
+        recipe_ingredients: ingredientlist ,
+        recipe_instructions:  instructionList ,
 
-    await pb.collection('recipes').create({
-      recipe_name: recipeName,
-      recipe_author: user_id,
-      recipe_ingredients: ingredientlist ,
-      recipe_instructions:  instructionList ,
+        }).then(data => {
+          console.log(data)
+          toastSuccess('Recipe Added!')
+        })
+          .catch(error => {
+            console.log(error)
+            toastError('Server Error Please try Again')
+          });
 
-    }).then(data => {
-      console.log(data)
-    })
-      .catch(error => {
-        console.log(error)
-      });
+    }
+
   };
       
     
       return (
         <>
+          <ToastContainer />
           <TopBar showNav={showNav} setShowNav={setShowNav} />
           <Transition
             as={Fragment}
@@ -126,7 +139,7 @@ function AddRecipe({
                         Recipe Name:
                         <input
                                 type="text"
-                                className="p-1 mt-2 w-[210px] rounded-lg text-black"    
+                                className="p-1 mt-2 flex rounded-lg text-black"    
                                 value={recipeName}
                                 placeholder="Recipe Name"
                                 onChange={(e)=> setRecipeName(e.target.value)}
