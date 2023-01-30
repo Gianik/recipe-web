@@ -135,6 +135,10 @@ Sample Login and Registration
 ![Registration Screen Shot][registration-screenshot]
 
 This pages handle the login and registration portion of the system.
+After loggin in the user will be redirected to a page with showing a list of the recipes made by the user.
+
+Sample
+
 
 <p align="left">(<a href="#readme-top">back to top</a>)</p>
 
@@ -267,3 +271,4 @@ I would like to acknowledge the other minor packages used in the project.
 [terminal-screenshot]: readme_images/pocketbase_terminal.PNG
 [login-screenshot]: readme_images/Login_Sample.PNG
 [registration-screenshot]: readme_images/Register_Sample.PNG
+[my-recipes-screenshot]: readme_images/My_Recipes_Sample.PNG
