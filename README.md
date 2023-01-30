@@ -125,8 +125,7 @@ Notes:
 * It is not advisable to access the main pages without logging in as it can break the program.
 * Please check the Pocketbase link in the terminal to make sure the api calls will be proper.
 
-[![Pocketbase Terminal Screen Shot][terminal-screenshot]](https://example.com)
-
+[![Pocketbase Terminal Screen Shot][terminal-screenshot]]()
 
 <p align="left">(<a href="#readme-top">back to top</a>)</p>
 
