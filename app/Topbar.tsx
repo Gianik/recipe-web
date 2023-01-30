@@ -8,7 +8,8 @@ import {
 } from "@heroicons/react/24/solid";
 import { Menu, Transition, Popover } from "@headlessui/react";
 import {  toastSuccess } from '../components/toast';
-import { useRouter } from "next/navigation"
+import { useRouter } from "next/navigation";
+import 'react-toastify/dist/ReactToastify.css';
 export default function TopBar({ showNav, setShowNav }: any) {
     const router = useRouter();
     const [name,setName] = useState("")
