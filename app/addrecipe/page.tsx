@@ -91,7 +91,7 @@ function AddRecipe() {
                 <div className="rounded-xl bg-[#363740]  w-[300px] items-center text-center mt-10 ">
                       New Recipe
                       <hr />
-                      <form onSubmit={handleSubmit} className="flex flex-col gap-0 mt-0 items-center">
+                      <form onSubmit={handleSubmit} className="flex  flex-col gap-0 mt-0 items-center">
                         Recipe Name:
                         <input
                                 type="text"
@@ -106,7 +106,7 @@ function AddRecipe() {
                            {ingredientlist.map((x, i) => {
                               return (
                                 <div key={i} className="m-0 flex flex-col">
-                                    <input
+                                    <textarea
                                     name="Ingredient"
                                     className="mr-6 flex rounded-lg p-1 text-black"        
                                     placeholder="Ingredient"
@@ -127,7 +127,7 @@ function AddRecipe() {
                            {instructionList.map((x, i) => {
                               return (
                                 <div key={i} className="m-0 flex flex-col">
-                                    <input
+                                    <textarea
                                     name="Instruction"
                                     className="mr-6 flex rounded-lg p-1 text-black"        
                                     placeholder="Instruction"
