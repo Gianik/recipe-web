@@ -110,7 +110,7 @@ function EditRecipe(params: any) {
                            {ingredientlist.map((x, i) => {
                               return (
                                 <div key={i} className="m-0 flex flex-col">
-                                    <input
+                                    <textarea
                                     name="Ingredient"
                                     className="mr-6 flex rounded-lg p-1 text-black"        
                                     placeholder="Ingredient"
@@ -130,7 +130,7 @@ function EditRecipe(params: any) {
                            {instructionList.map((x, i) => {
                               return (
                                 <div key={i} className="m-0 flex flex-col">
-                                    <input
+                                    <textarea
                                     name="Instruction"
                                     className="mr-6 flex rounded-lg p-1 text-black"        
                                     placeholder="Instruction"
