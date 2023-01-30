@@ -153,6 +153,26 @@ Sample User Sidebar
 
 ![Sidebar user Screen Shot][sidebar-user-screenshot]
 <br/>
+
+Important part of this web app is to create,read,update and delete recipes and a sample of screenshot will be shown.
+
+Sample Recipe Create
+![Add Recipe 1 Screen Shot][Add-Recipe-1-screenshot]
+![Add Recipe 2 Screen Shot][Add-Recipe-2-screenshot]
+![Add Recipe 3 Screen Shot][Add-Recipe-3-screenshot]
+![Add Recipe 4 Screen Shot][Add-Recipe-4-screenshot]
+
+Sample View Recipe
+![View Recipe Screen Shot][View-Recipe-screenshot]
+
+Sample Edit Recipe, In Edit Recipe or User the data will be fetch and populate the input boxes,textarea and select boxes with the current information
+
+![Edit Recipe Screen Shot][Edit-Recipe-screenshot]
+
+Sample Delete Recipe, Before you can delete a recipe a confirmation page where the user needs to confirm to delete the recipe or user or not.
+
+![Delete Recipe Screen Shot][Delete-Recipe-screenshot]
+
 <p align="left">(<a href="#readme-top">back to top</a>)</p>
 
 ## API Sample
@@ -287,3 +307,10 @@ I would like to acknowledge the other minor packages used in the project.
 [my-recipes-screenshot]: readme_images/My_Recipes_Sample.png
 [sidebar-admin-screenshot]: readme_images/Sidebar_Admin_Sample.PNG
 [sidebar-user-screenshot]: readme_images/Sidebar_User_Sample.PNG
+[Add-Recipe-1-screenshot]: readme_images/Add_Recipe_Sample_1.PNG
+[Add-Recipe-2-screenshot]: readme_images/Add_Recipe_Sample_2.PNG
+[Add-Recipe-3-screenshot]: readme_images/Add_Recipe_Sample_3.PNG
+[Add-Recipe-4-screenshot]: readme_images/Add_Recipe_Sample_4.PNG
+[View-Recipe-screenshot]: readme_images/View_Recipe_Sample.PNG
+[Edit-Recipe-screenshot]: readme_images/Edit_Recipe_Sample.PNG
+[Delete-Recipe-screenshot]: readme_images/Delete_Confirmation.PNG
