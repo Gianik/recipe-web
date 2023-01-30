@@ -157,6 +157,7 @@ Sample User Sidebar
 Important part of this web app is to create,read,update and delete recipes and a sample of screenshot will be shown.
 
 Sample Recipe Create
+<br/>
 ![Add Recipe 1 Screen Shot][Add-Recipe-1-screenshot]
 ![Add Recipe 2 Screen Shot][Add-Recipe-2-screenshot]
 ![Add Recipe 3 Screen Shot][Add-Recipe-3-screenshot]
