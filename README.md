@@ -125,7 +125,7 @@ Sample Use Cases will be placed here along with a short explanation.
 
 Notes:
 
-* It is not advisable to access the main pages without logging in as it can break the program.
+* It is not advisable to access the main pages without logging in or there is no data in local storage as it can break the program. 
 * Please check the Pocketbase link in the terminal to make sure the api calls will be proper.
 * if the images are not displaying properly you can find them in the folder 'readme_images'
 
