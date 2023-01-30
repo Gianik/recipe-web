@@ -143,6 +143,14 @@ Sample My Recipes
 
 ![My Recipes Screen Shot][my-recipes-screenshot]
 
+On the main pages sidebar links are restricted by role admin can access more links that can view,edit and delete all recipes and users.
+
+Sample Admin Sidebar
+![Sidebar admin Screen Shot][sidebar-admin-screenshot]
+
+Sample User Sidebar
+![Sidebar user Screen Shot][sidebar-user-screenshot]
+
 <p align="left">(<a href="#readme-top">back to top</a>)</p>
 
 ## API Sample
@@ -275,3 +283,5 @@ I would like to acknowledge the other minor packages used in the project.
 [login-screenshot]: readme_images/Login_Sample.PNG
 [registration-screenshot]: readme_images/Register_Sample.PNG
 [my-recipes-screenshot]: readme_images/My_Recipes_Sample.png
+[sidebar-admin-screenshot]: readme_images/Sidebar_Admin_Sample.PNG
+[sidebar-user-screenshot]: readme_images/Sidebar_User_Sample.PNG
