@@ -1,14 +1,12 @@
 'use client'
 
 import { useState, FormEvent } from "react";
-
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/solid";
 import Dashboard from "../dashboard";
 import { useRouter } from "next/navigation"
 import PocketBase from 'pocketbase';
 import { validate } from '../register/validate';
-import { toastError, toastSuccess } from '../../components/toast';
-import { toast, ToastContainer } from 'react-toastify';
+import {  ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 function AddUser() {
     const router = useRouter();
@@ -21,6 +19,7 @@ function AddUser() {
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [errorMessage, setErrorMessage] = useState("")
 
+    //change showPassword state to change icon
     const handleShowPassword = (e:any) => {
         e.preventDefault()
         if (showPassword === true) {
@@ -33,7 +32,7 @@ function AddUser() {
         }
 
     };
-    //change showConfirmPassword state
+    //change showConfirmPassword state to change icon
     const handleShowConfirmPassword = (e:any) => {
         e.preventDefault()
         if (showConfirmPassword === true) {
@@ -46,7 +45,7 @@ function AddUser() {
         }
 
     };
-
+    // handle form submit
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         email.trim()
@@ -62,7 +61,7 @@ function AddUser() {
                 password: password,
                 passwordConfirm: confirmPassword,
                 role: 'user',
-                emailVisibility:true
+                emailVisibility: true
             }).then(data => {
                 console.log(data)
                 setEmail("")
@@ -86,7 +85,7 @@ function AddUser() {
         } else {
             setErrorMessage(valid.message)
         }
-    }
+    };
       
     
       return (
@@ -107,7 +106,6 @@ function AddUser() {
                             <div className="relative flex">
                                 <h6 className="text-center break-normal text-red-600 ">{ errorMessage }</h6>
                             </div>
-
                             <form onSubmit={handleSubmit} className="flex flex-col gap-4 mt-2" noValidate>
                                 <input
                                     type="email"
@@ -147,9 +145,6 @@ function AddUser() {
                                 <button type="submit" className="bg-blue-800 text-white font-bold py-2 px-4 rounded-lg">
                                     Register
                                 </button>
-
-
-                          
                             </form>
                         </div>
                     </div>

@@ -7,15 +7,15 @@ import Dashboard from "../dashboard";
 import { useRouter } from "next/navigation"
 import PocketBase from 'pocketbase';
 import { validate } from './validate';
-import { toastError, toastSuccess } from '../../components/toast';
-import { toast, ToastContainer } from 'react-toastify';
+import { toastError} from '../../components/toast';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 function AddRecipe() {
     const router = useRouter();
     const pb = new PocketBase(process.env.PB_LINK);    
 
     const [ingredientlist, setIngredientlist] = useState([{ Ingredient: "" }]);
-    const [recipeName,setRecipeName] = useState("")
+    const [recipeName, setRecipeName] = useState("");
     const [instructionList, setInstructionList] = useState([{ Instruction: ""}]);
 
       // handle input change for Ingredients and Instructions

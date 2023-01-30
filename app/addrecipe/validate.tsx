@@ -1,15 +1,14 @@
 import { toastError, toastSuccess } from '../../components/toast';
 
 export const validate = ({ recipeName, ingredientlist, instructionList }: any) => {
-    var errorTracker = false // track if the forEach error
+    var errorTracker = false // track if the forEach has error found
     if (recipeName !== "") { // validate recipe name
         if (/^[A-Za-z0-9 ]+$/.test(recipeName)) {
-            // toastError("Name cannot be null")
-            // return true
+
         }
         else {
             toastError("No special characters in Recipe Name")
-            return false
+            return false;
         }
     }
     else {
@@ -17,25 +16,25 @@ export const validate = ({ recipeName, ingredientlist, instructionList }: any) =
         return false
     }
     ingredientlist.forEach(element => {
-        if (element.Ingredient=="") {
+        if (element.Ingredient == "") {
             toastError("One of the Ingredient List field is empty please fill it up or remove it")
-            errorTracker=true
-            return false
-            
+            errorTracker = true;
+            return false;
+                
         }
     });
     instructionList.forEach(element => {
-        if (element.Instruction=="") {
+        if (element.Instruction == "") {
             toastError("One of the Instruction List field is empty please fill it up or remove it")
-            errorTracker=true
-            return false
+            errorTracker = true;
+            return false;
         }
     });
     if (errorTracker as boolean == true) { // assert the type to remove typescript error
-        return false
+        return false;
     }
     else {
-        return true
+        return true;
     }
     
-}
+};

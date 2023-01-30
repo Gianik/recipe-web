@@ -1,21 +1,22 @@
-
+//server side component
 
 import {  PlusCircleIcon} from "@heroicons/react/24/solid";
 import PocketBase from 'pocketbase';
-
 import Link from "next/link";
 import Dashboard from "../dashboard";
+
 export const revalidate = 10; //time in seconds for the server side component to fetch the data again (to keep it updated)
-async function getRecipes(authorId: string) {
-        const pb = new PocketBase(process.env.PB_LINK);
-        const data = await pb.collection('recipes').getFullList(30, {
-          filter: `recipe_author="${authorId}"`
-        })
 
-        return data
-}
+async function getRecipes(authorId: string) { // get the data
+    const pb = new PocketBase(process.env.PB_LINK);
+    const data = await pb.collection('recipes').getFullList(30, {
+      filter: `recipe_author="${authorId}"`
+    });
 
-export default async  function  HomePage({ params }: any){
+    return data;
+};
+
+export default async  function  HomePage({ params }: any){ // can be async as it a server side component
     const recipes = await getRecipes(params.userId)
 
     
@@ -41,4 +42,4 @@ export default async  function  HomePage({ params }: any){
             
         </div>
       );
-    }
+};

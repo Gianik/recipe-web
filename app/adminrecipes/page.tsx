@@ -1,4 +1,4 @@
-
+// server side component
 
 import {  PlusCircleIcon} from "@heroicons/react/24/solid";
 import PocketBase from 'pocketbase';
@@ -6,15 +6,16 @@ import PocketBase from 'pocketbase';
 import Link from "next/link";
 import Dashboard from "../dashboard";
 export const revalidate = 10; //time in seconds for the server side component to fetch the data again (to keep it updated)
-async function getRecipes() {
+
+async function getRecipes() { // get data
         const pb = new PocketBase(process.env.PB_LINK);
         const data = await pb.collection('recipes').getFullList(30, {
         })
-        // console.log(data)
+
         return data
 }
 
-export default async  function  AllRecipes({ }: any){
+export default async  function  AllRecipes({ }: any){ // can be async as it a server side component
     const recipes = await getRecipes()
 
     
