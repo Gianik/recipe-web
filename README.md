@@ -22,7 +22,6 @@ ___
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
@@ -59,7 +58,7 @@ This project is built with using the following technologies:
 * [![TailwindCSS][Tailwind CSS]][Tailwind CSS-url]
 
 ### Reason for
-
+  
 The reason for choosing the technologies mentioned above is that I want to use nextjs a react framework with tailwind css and pocketbase a self host database server to have fast and light project.
 
 ### Prerequisites
@@ -69,6 +68,32 @@ The prerequisites for this project:
   ```sh
   Node.js 14.6.0 or higher
   ```
+
+### Installation
+
+1. Clone the Github repsitory
+2. 
+   ```sh
+    git clone https://github.com/Gianik/recipe-web.git
+   ```
+
+3. Install NPM packages
+
+   ```sh
+   npm install || npm i
+   ```
+
+4. Start Pocketbase
+   ```sh
+   ./Pocketbase serve
+   ```
+5. Enter the Pocketbase link `.env.local`
+   ```js
+   PB_LINK = 'your pocketbase link'  
+   Sample:'http://127.0.0.1:8090'
+
+## Usage
+    Sample Use Cases will be placed here along with a short explanation.
 
 <!-- Markdown Links and images -->
 [PocketBase]:https://img.shields.io/static/v1?style=for-the-badge&message=PocketBase&color=222222&logo=PocketBase&logoColor=B8DBE4&label=
