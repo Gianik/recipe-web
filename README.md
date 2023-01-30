@@ -141,7 +141,7 @@ Samples of the API used and a short explanation will be provided here.
             })
         // The goal of this api is to create a user this specific api is used
         // in registration and addUsers a variation is used in add recipes. 
-        //It does this by creating an instance of Pocketbase with the link and
+        // It does this by creating an instance of Pocketbase with the link and
         // call a function of collection that is create along with the data needed.
     ```
 
@@ -153,7 +153,11 @@ Samples of the API used and a short explanation will be provided here.
                 email,
                 password,
             )
-            //The goal of this api to authenticate with pocketbase to log in. Again it needs an instance of Pocketbase and it calls one of the available methods of authentication in this case it is authWithPassword with email. It also available with username and password and support for integration with Web.  OAuth2 
+            // The goal of this api to authenticate with pocketbase to log in.
+            // Again it needs an instance of Pocketbase and it calls one of the
+            // available methods of authentication in this case it is
+            // authWithPassword with email. It also available with username and
+            // password and support for integration with Web.  OAuth2 
     ```
 
 * Samples Get API
@@ -174,7 +178,11 @@ Samples of the API used and a short explanation will be provided here.
       filter: `recipe_author="${authorId}"`
     });
 
-    // This is a sample of a get api with three variations with getOne for details of one, getFullList with a max of 30 and a variation of getFullList with a condition. A max number of records it can return is required. As usual an instance of Pocketbase is needed and necessary data like the ids.
+    // This is a sample of a get api with three variations with getOne for
+    // details of one, getFullList with a max of 30 and a variation of
+    // getFullList with a condition. A max number of records it can return is 
+    // required. As usual an instance of Pocketbase is needed and necessary data
+    // like the ids.
 
 
     ```
@@ -188,7 +196,10 @@ Samples of the API used and a short explanation will be provided here.
         recipe_ingredients: ingredientlist ,
         recipe_instructions:  instructionList ,
         })
-        //The update API is alike with the Create one but this time you need to pass the id of the record you are going to update along with the new data. Like other API used an instance of Pocketbase is needed to call the api.
+        // The update API is alike with the Create one but this time you need to
+        // pass the id of the record you are going to update along with the new
+        // data. Like other API used an instance of Pocketbase is needed to 
+        // call the api.
     ```
 
 * Sample Delete API
@@ -197,7 +208,9 @@ Samples of the API used and a short explanation will be provided here.
     const pb = new PocketBase(process.env.PB_LINK);
     await pb.collection('users').delete(`${params.params.userId}`)
 
-    //The delete API is straghtforward you just need to specify the collection and call the delete function along with the id of the record that is to be deleted.
+    // The delete API is straghtforward you just need to specify the collection
+    // and call the delete function along with the id of the record that is to
+    // be deleted.
   ```
 
 <p align="left">(<a href="#readme-top">back to top</a>)</p>
