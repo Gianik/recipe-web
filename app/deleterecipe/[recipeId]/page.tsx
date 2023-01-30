@@ -8,7 +8,7 @@ import {  ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 function DeleteRecipe(params:any) {
     const router = useRouter();
-    const pb = new PocketBase(process.env.PB_LINK);    
+    const pb = new PocketBase('http://127.0.0.1:8090');    
 
 
 

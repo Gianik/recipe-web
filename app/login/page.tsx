@@ -12,7 +12,7 @@ import { validate } from "./validate";
 export default function LoginPage(props:any) {
 
     const router = useRouter();
-    const pb = new PocketBase(process.env.PB_LINK);
+    const pb = new PocketBase('http://127.0.0.1:8090');
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
@@ -20,7 +20,6 @@ export default function LoginPage(props:any) {
     
     //handle the form submit to login user
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-        
         e.preventDefault();
         email.trim();
         password.trim();

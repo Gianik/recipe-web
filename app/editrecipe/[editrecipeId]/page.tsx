@@ -12,7 +12,7 @@ import 'react-toastify/dist/ReactToastify.css';
 function EditRecipe(params: any) {
   
     const router = useRouter();
-    const pb = new PocketBase(process.env.PB_LINK);
+    const pb = new PocketBase('http://127.0.0.1:8090');
     const [ingredientlist, setIngredientlist] = useState([{ Ingredient: "" }]);
     const [recipeName, setRecipeName] = useState("");
     const [instructionList, setInstructionList] = useState([{ Instruction: "" }]);
@@ -93,7 +93,7 @@ function EditRecipe(params: any) {
             <Dashboard children={""} />
               <div className="  flex flex-col items-center justify-center text-white font-bold mb-[300px]">
                 <div className="rounded-xl bg-[#363740]  w-[300px] items-center text-center mt-10 ">
-                      New Recipe
+                      Edit Recipe
                       <hr />
                       <form onSubmit={handleSubmit} className="flex flex-col gap-0 mt-0 items-center">
                         Recipe Name:
@@ -147,7 +147,7 @@ function EditRecipe(params: any) {
                           })}
                         <hr className="w-full mt-1" />
                         <button type="submit" className="bg-blue-800 text-white font-bold mt-2 mb-2 py-2 px-4 rounded-lg">
-                                Add Recipe 
+                                Update Recipe 
                         </button>
                       </form>
                 </div>
