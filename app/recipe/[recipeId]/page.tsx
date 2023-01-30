@@ -2,7 +2,6 @@
 
 import {  PlusCircleIcon,PencilSquareIcon,TrashIcon} from "@heroicons/react/24/solid";
 import PocketBase from 'pocketbase';
-import { useSearchParams } from 'next/navigation'
 import Link from "next/link";
 import Dashboard from "../../dashboard";
 
