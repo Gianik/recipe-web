@@ -132,13 +132,15 @@ Notes:
 Sample Login and Registration
 
 ![Login Screen Shot][login-screenshot]
+
 ![Registration Screen Shot][registration-screenshot]
 
 This pages handle the login and registration portion of the system.
 After loggin in the user will be redirected to a page with showing a list of the recipes made by the user.
 
-Sample
+Sample My Recipes
 
+![My Recipes Screen Shot][my-recipes-screenshot]
 
 <p align="left">(<a href="#readme-top">back to top</a>)</p>
 
