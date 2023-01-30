@@ -174,6 +174,11 @@ Sample Delete Recipe, Before you can delete a recipe a confirmation page where t
 
 ![Delete Recipe Screen Shot][Delete-Recipe-screenshot]
 
+In particular an admin user can see all users and recipes and can add new ones,view,edit and delete existing ones.
+<br/>
+![All Recipes Screen Shot][All-Recipes-screenshot]
+![All Users Screen Shot][All-Users-screenshot]
+
 <p align="left">(<a href="#readme-top">back to top</a>)</p>
 
 ## API Sample
@@ -315,3 +320,5 @@ I would like to acknowledge the other minor packages used in the project.
 [View-Recipe-screenshot]: readme_images/View_Recipe_Sample.PNG
 [Edit-Recipe-screenshot]: readme_images/Edit_Recipe_Sample.PNG
 [Delete-Recipe-screenshot]: readme_images/Delete_Confirmation.PNG
+[All-Recipes-screenshot]: readme_images/All_Recipes_Sample.PNG
+[All-Users-screenshot]: readme_images/All_Users_Sample.PNG
