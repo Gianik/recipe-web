@@ -7,7 +7,6 @@ import {
   Cog8ToothIcon,
 } from "@heroicons/react/24/solid";
 import { Menu, Transition } from "@headlessui/react";
-import {  toastSuccess } from '../components/toast';
 import { useRouter } from "next/navigation";
 import 'react-toastify/dist/ReactToastify.css';
 export default function TopBar({ showNav, setShowNav }: any) {
