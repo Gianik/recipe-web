@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation"
 import PocketBase from 'pocketbase';
 import { toastError, toastSuccess } from '../../components/toast';
 import { toast, ToastContainer } from 'react-toastify';
+import { validate } from "./validate";
 import 'react-toastify/dist/ReactToastify.css';
 function AddRecipe(params:any) {
     const router = useRouter();
@@ -32,33 +33,40 @@ function AddRecipe(params:any) {
      //handle submition of form
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        let user_id = JSON.parse(localStorage.getItem('user') || '').id
-        await pb.collection('users').update(`${user_id}`, {
-            name: fullName,
-            email: email,
-        }).then(data => {
-            console.log(data.avatar)
-            let userData = {
-                avatar:data.avatar,
-                id: data.id,
-                name: data.name,
-                role: data.role,
-                email:data.email
-            }
-            localStorage.setItem('user', JSON.stringify(userData))
-            setEmail("")
-            setFullName("")
-            toastSuccess("Upate Successful change page to see changes")
-            router.push(`/${user_id}`)
-        }).catch(error => {
-            console.log(error)
-            if (error.data.code == 404) {
-                toastError("User not found please try again")
-            }
-            else {
-            toastError("Server Error please try again")
-            }
-        })
+        email.trim()
+        fullName.trim()
+        let valid = validate({email, fullName})
+        if (valid.validate == true) {
+            let user_id = JSON.parse(localStorage.getItem('user') || '').id
+            await pb.collection('users').update(`${user_id}`, {
+                name: fullName,
+                email: email,
+            }).then(data => {
+                console.log(data.avatar)
+                let userData = {
+                    avatar: data.avatar,
+                    id: data.id,
+                    name: data.name,
+                    role: data.role,
+                    email: data.email
+                }
+                localStorage.setItem('user', JSON.stringify(userData))
+                setEmail("")
+                setFullName("")
+                toastSuccess("Upate Successful change page to see changes")
+                router.push(`/${user_id}`)
+            }).catch(error => {
+                console.log(error)
+                if (error.data.code == 404) {
+                    toastError("User not found please try again")
+                }
+                else {
+                    toastError("Server Error please try again")
+                }
+            })
+        } else {
+            toastError(valid.message)
+        }
     }
 
 
