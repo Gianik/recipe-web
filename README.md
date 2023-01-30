@@ -125,8 +125,7 @@ Notes:
 * It is not advisable to access the main pages without logging in as it can break the program.
 * Please check the Pocketbase link in the terminal to make sure the api calls will be proper.
 
-<img src="readme_images/pocketbase_terminal.png" alt="Logo" width="80" height="80">
-
+[![Pocketbase Terminal Screen Shot][terminal-screenshot]](https://example.com)
 
 
 <p align="left">(<a href="#readme-top">back to top</a>)</p>
@@ -256,3 +255,5 @@ I would like to acknowledge the other minor packages used in the project.
 
 [Headless UI]:https://img.shields.io/static/v1?style=for-the-badge&message=Headless+UI&color=222222&logo=Headless+UI&logoColor=66E3FF&label=
 [Headless UI-url]: https://headlessui.com/
+
+[terminal-screenshot]: readme_images/pocketbase_terminal.png
