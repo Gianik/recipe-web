@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Link from "next/link";
 import PocketBase from 'pocketbase';
 import { validate } from "./validate"
+import { toastSuccess } from "../../components/toast";
 
 export default function LoginPage(props:any) {
 

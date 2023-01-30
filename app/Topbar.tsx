@@ -6,18 +6,35 @@ import {
   ChevronDownIcon,
   Cog8ToothIcon,
 } from "@heroicons/react/24/solid";
-import { BellIcon, CheckIcon } from "@heroicons/react/24/outline";
 import { Menu, Transition, Popover } from "@headlessui/react";
-import Link from "next/link";
-
+import {  toastSuccess } from '../components/toast';
+import { useRouter } from "next/navigation"
 export default function TopBar({ showNav, setShowNav }: any) {
+    const router = useRouter();
     const [name,setName] = useState("")
 
 
-    useEffect(() => {
-        let data = JSON.parse(localStorage.getItem("user") || '')
-        setName(data.name)
-    },[])
+  useEffect(() => {
+    const user = localStorage.getItem('user') || ''
+    if (user == "") {
+      router.push('/login')
+    }
+        fetchData()
+    }, [])
+    const fetchData = async () => {//fetch the data from local storage since it is already there
+      setName(JSON.parse(localStorage.getItem('user') || '').name);
+
+  }
+  const handleLogout = (e: any) => {
+
+    toastSuccess("You have Logged Out")
+    localStorage.removeItem('user')
+    location.replace("/login")
+   
+    
+
+  }
+  
   return (
     <div
       className={`fixed w-full h-16 flex justify-between items-center transition-all duration-[400ms] bg-white ${
@@ -53,13 +70,14 @@ export default function TopBar({ showNav, setShowNav }: any) {
             <Menu.Items className="absolute right-0 w-56 z-50 mt-2 origin-top-right bg-white rounded shadow-sm">
               <div className="p-1">
                 <Menu.Item>
-                  <Link
-                    href="#"
+                  <button type="submit" className="w-full" onClick={handleLogout}>
+                  <div 
                     className="flex hover:bg-orange-500 hover:text-white text-gray-700 rounded p-2 text-sm group transition-colors items-center"
                   >
                     <Cog8ToothIcon className="h-4 w-4 mr-2" />
                     Logout
-                  </Link>
+                    </div>
+                  </button>
                 </Menu.Item>
               </div>
             </Menu.Items>
