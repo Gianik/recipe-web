@@ -37,7 +37,8 @@ export default function Register() {
                 email: email,
                 password: password,
                 passwordConfirm: confirmPassword,
-                role: 'user'
+                role: 'user',
+                emailVisibility:true
             }).then(data => {
                 console.log(data)
                 setEmail("")
