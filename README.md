@@ -124,8 +124,17 @@ Sample Use Cases will be placed here along with a short explanation.
 Notes:
 * It is not advisable to access the main pages without logging in as it can break the program.
 * Please check the Pocketbase link in the terminal to make sure the api calls will be proper.
+* if the images are not displaying properly you can find them in the folder 'readme_images'
 
-[![Pocketbase Terminal Screen Shot][terminal-screenshot]]()
+[![Pocketbase Terminal Screen Shot][terminal-screenshot]
+
+
+Sample Login and Registration
+
+![Login Screen Shot][login-screenshot]
+![Registration Screen Shot][registration-screenshot]
+
+This pages handle the login and registration portion of the system.
 
 <p align="left">(<a href="#readme-top">back to top</a>)</p>
 
@@ -256,3 +265,5 @@ I would like to acknowledge the other minor packages used in the project.
 [Headless UI-url]: https://headlessui.com/
 
 [terminal-screenshot]: readme_images/pocketbase_terminal.png
+[login-screenshot]: readme_images/Login_sample.png
+[registration-screenshot]: readme_images/Register_Sample.png
