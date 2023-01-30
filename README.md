@@ -92,7 +92,7 @@ The prerequisites for this project:
 3. Start Pocketbase
 
    ```sh
-   ./Pocketbase serve
+   ./pocketbase serve
    ```
 
 4. Enter the Pocketbase link `.env.local`
