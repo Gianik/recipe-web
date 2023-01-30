@@ -23,7 +23,7 @@ export default async  function  HomePage({ }: any){
             
             <Dashboard children={undefined} />
               <div className="flex mt-2 text-center justify-center">
-                  <h1 className="font-bold pl-10 text-3xl mt-2">My Recipes</h1>
+                  <h1 className="font-bold pl-10 text-3xl mt-2">All Recipes</h1>
                   <Link href='/addrecipe'><button className="bg-blue-800 text-white ml-3 mt-4  px-2 rounded-lg flex"> Add Recipe   <PlusCircleIcon className="w-6 h-6 pl-1 top-1/2 right-0 " /> </button></Link>
                 </div>
               <div className="grid lg:grid-cols-4 gap-5 ml-[100px] m-[100px] mt-16 text-white">

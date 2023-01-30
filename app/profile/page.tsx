@@ -1,5 +1,5 @@
 'use client'
-import React, { FormEvent, useState } from "react";
+import React, { FormEvent, useState,useEffect } from "react";
 import Dashboard from "../dashboard";
 import { useRouter } from "next/navigation"
 import PocketBase from 'pocketbase';
@@ -9,10 +9,25 @@ import 'react-toastify/dist/ReactToastify.css';
 function AddRecipe(params:any) {
     const router = useRouter();
     const pb = new PocketBase('http://127.0.0.1:8090');
-    const [email, setEmail] = useState(JSON.parse(localStorage.getItem('user') || '').email);
-    const [fullName, setFullName] = useState(JSON.parse(localStorage.getItem('user') || '').name);
+    const user = localStorage.getItem('user') || ''
+    console.log(user)
+    if (user == "") {
+        router.push('/login')
+    }
+    const [email, setEmail] = useState("");
+    const [fullName, setFullName] = useState("");
 
-
+    useEffect(() => {
+        if (user == "") {
+            router.push('/login')
+        }
+        fetchData()
+    }, []);
+    
+    const fetchData = async () => {//fetch the data from local storage since it is already there
+        setEmail(JSON.parse(localStorage.getItem('user') || '').email);
+        setFullName(JSON.parse(localStorage.getItem('user') || '').name);
+    }
 
      //handle submition of form
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {

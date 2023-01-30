@@ -11,7 +11,7 @@ async function getRecipes(authorId: string) {
         const data = await pb.collection('recipes').getFullList(30, {
           filter: `recipe_author="${authorId}"`
         })
-        // console.log(data)
+
         return data
 }
 
