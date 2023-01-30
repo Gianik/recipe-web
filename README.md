@@ -108,7 +108,7 @@ The prerequisites for this project:
 6. Login
  
    ```js
-    //You can login using this credentials:
+    //You can login using this credentials it has an admin role:
     //Email:test@test.com
     //Password:12345
    ```
@@ -118,6 +118,8 @@ The prerequisites for this project:
 ## Usage
 
 Sample Use Cases will be placed here along with a short explanation.
+
+Tips: You can use 
 
 <p align="left">(<a href="#readme-top">back to top</a>)</p>
 
@@ -137,7 +139,10 @@ Samples of the API used and a short explanation will be provided here.
                 role: 'user',
                 emailVisibility: true
             })
-        // The goal of this api is to create a user this specific api is used in registration and addUsers a variation is used in add recipes. It does this by creating an instance of Pocketbase with the link and call a function of collection that is create along with the data needed.
+        // The goal of this api is to create a user this specific api is used
+        // in registration and addUsers a variation is used in add recipes. 
+        //It does this by creating an instance of Pocketbase with the link and
+        // call a function of collection that is create along with the data needed.
     ```
 
 * Sample Auth API
