@@ -12,28 +12,25 @@ import 'react-toastify/dist/ReactToastify.css';
 export default function TopBar({ showNav, setShowNav }: any) {
 
   const router = useRouter();
-  const [name,setName] = useState("")
+  const [name, setName] = useState("");
 
 
   useEffect(() => {
-    const user = localStorage.getItem('user') || ''
+    const user = localStorage.getItem('user') || '';
     if (user == "") {
-      router.push('/login')
+      router.push('/login');
     }
-        fetchData()
+    fetchData();
     }, [])
-    const fetchData = async () => {//fetch the data from local storage since it is already there
-      setName(JSON.parse(localStorage.getItem('user') || '').name);
+  const fetchData = async () => {//fetch the data from local storage since it is already there
+    setName(JSON.parse(localStorage.getItem('user') || '').name);
 
-  }
+  };
   const handleLogout = (e: any) => {
 
-    localStorage.removeItem('user')
-    location.replace("/login")
-   
-    
-
-  }
+    localStorage.removeItem('user');
+    location.replace("/login");
+  };
   
   return (
           <div

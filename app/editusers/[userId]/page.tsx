@@ -10,12 +10,12 @@ import 'react-toastify/dist/ReactToastify.css';
 function EditUser(params:any) {
     const router = useRouter();
     const pb = new PocketBase(process.env.PB_LINK);
-    const user = localStorage.getItem('user') || ''
+    const user = localStorage.getItem('user') || '';
     const [email, setEmail] = useState("");
     const [fullName, setFullName] = useState("");
-    const [roleSelect,setRoleSelect] = useState("")
+    const [roleSelect, setRoleSelect] = useState("");
 
-    useEffect(() => {
+    useEffect(() => { 
         const user = localStorage.getItem('user') || ''
         if (user == "") {
             router.push('/login')
@@ -23,19 +23,18 @@ function EditUser(params:any) {
         fetchData()
     }, []);
     
-    const fetchData = async () => {
-        console.log(params.params.userId)
-        const data = await pb.collection('users').getOne(`${params.params.userId}`, { '$autoCancel': false })
-        setEmail(data.email)
-        setFullName(data.name)
-        setRoleSelect(data.role)
-    }
+    const fetchData = async () => { //fetch the data
+        const data = await pb.collection('users').getOne(`${params.params.userId}`, { '$autoCancel': false });
+        setEmail(data.email);
+        setFullName(data.name);
+        setRoleSelect(data.role);
+    };
 
      //handle submition of form
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-        e.preventDefault()
-        email.trim()
-        fullName.trim()
+        e.preventDefault();
+        email.trim();
+        fullName.trim();
         let valid = validate({ email, fullName })
         if (valid.validate == true) {
             await pb.collection('users').update(`${params.params.userId}`, {
@@ -43,20 +42,20 @@ function EditUser(params:any) {
                 email: email,
                 role: roleSelect
             }).then(data => {
-                router.push(`user/${params.params.userId}`)
+                router.push(`user/${params.params.userId}`);
             }).catch(error => {
                 console.log(error)
                 if (error.data.code == 404) {
-                    toastError("User not found please try again")
+                    toastError("User not found please try again");
                 }
                 else {
-                    toastError("Server Error please try again")
+                    toastError("Server Error please try again");
                 }
             })
         } else {
-            toastError(valid.message)
+            toastError(valid.message);
         }
-    }
+    };
 
 
 

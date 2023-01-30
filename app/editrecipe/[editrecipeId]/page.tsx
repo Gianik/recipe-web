@@ -1,7 +1,6 @@
-'use client'
+'use client' // specify it is a client side component 
 
 import { useState, FormEvent,useEffect } from "react";
-import { useSearchParams } from 'next/navigation'
 import {  PlusCircleIcon,MinusCircleIcon} from "@heroicons/react/24/solid";
 import Dashboard from "../../dashboard";
 import { useRouter } from "next/navigation"
@@ -10,24 +9,24 @@ import { validate } from '../../addrecipe/validate';
 import { toastError, toastSuccess } from '../../../components/toast';
 import {  ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-function EditRecipe(params:any) {
+function EditRecipe(params: any) {
+  
     const router = useRouter();
     const pb = new PocketBase(process.env.PB_LINK);
-    const searchParams = useSearchParams();
     const [ingredientlist, setIngredientlist] = useState([{ Ingredient: "" }]);
-    const [recipeName,setRecipeName] = useState("")
+    const [recipeName, setRecipeName] = useState("");
     const [instructionList, setInstructionList] = useState([{ Instruction: "" }]);
     useEffect(() => {
       fetchData()
     }, []);
   
-     async function fetchData() {
+     async function fetchData() { // fetch the data
 
-       const data = await pb.collection('recipes').getOne(`${params.params.editrecipeId}`,{ '$autoCancel': false } )
-       setRecipeName(data.recipe_name)
-       setIngredientlist(data.recipe_ingredients)
-       setInstructionList(data.recipe_instructions)
-    }
+    const data = await pb.collection('recipes').getOne(`${params.params.editrecipeId}`,{ '$autoCancel': false } )
+       setRecipeName(data.recipe_name);
+       setIngredientlist(data.recipe_ingredients);
+       setInstructionList(data.recipe_instructions);
+    };
 
       // handle input change for Ingredients and Instructions
     const handleInputChange = (e: any, index: any) => {
@@ -68,10 +67,8 @@ function EditRecipe(params:any) {
   //handle submition of form
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    let user_id = JSON.parse(localStorage.getItem('user') || '').id
-    recipeName.trim()
-    let valid:any = validate({recipeName,ingredientlist,instructionList})
-    console.log(valid)
+    recipeName.trim();
+    let valid: any = validate({ recipeName, ingredientlist, instructionList });
     if (valid == true) {
         console.log(params.params.editrecipeId)
         await pb.collection('recipes').update(`${params.params.editrecipeId}`,{
@@ -81,16 +78,14 @@ function EditRecipe(params:any) {
 
         }).then(data => {
           console.log(data)
-          toastSuccess('Recipe Updated!')
-          router.push(`recipe/${params.params.editrecipeId}`)
+          toastSuccess('Recipe Updated!');
+          router.push(`recipe/${params.params.editrecipeId}`);
         })
           .catch(error => {
-            console.log(error)
-            toastError('Server Error Please try Again')
-          });
-
+            console.log(error);
+            toastError('Server Error Please try Again');
+        });
     }
-
   };
       return (
         <>
@@ -130,7 +125,6 @@ function EditRecipe(params:any) {
                                 </div>
                              );
                           })}
-                          
                           <hr className="w-full mt-1" />
                            Instructions:
                            {instructionList.map((x, i) => {
@@ -157,10 +151,7 @@ function EditRecipe(params:any) {
                         </button>
                       </form>
                 </div>
-
-                
             </div>
-            
         </>
       );
     }

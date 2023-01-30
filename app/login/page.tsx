@@ -1,40 +1,36 @@
 'use client'
 
-import React, { FormEvent, useState } from "react"
+import React, { FormEvent, useState } from "react";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/solid";
-import { useRouter } from "next/navigation"
-import { toast,ToastContainer } from 'react-toastify';
+import { useRouter } from "next/navigation";
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Link from "next/link";
 import PocketBase from 'pocketbase';
-import { validate } from "./validate"
-import { toastSuccess } from "../../components/toast";
+import { validate } from "./validate";
 
 export default function LoginPage(props:any) {
 
     const router = useRouter();
     const pb = new PocketBase(process.env.PB_LINK);
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
-    const [showPassword, setShowPassword] = useState(false)
-    const [errorMessage, setErrorMessage] = useState("")
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
     
     //handle the form submit to login user
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         
-        e.preventDefault()
-        email.trim()
-        password.trim()
-        let valid: any = validate({ email, password })
+        e.preventDefault();
+        email.trim();
+        password.trim();
+        let valid: any = validate({ email, password });
         if (valid.validate == true) {
-            setErrorMessage("")
-            // const pb = new PocketBase(process.env.PB_LINK);
+            setErrorMessage("");
             await pb.collection('users').authWithPassword(
                 email,
                 password,
-            ).then(data => {
-                console.log(data.record)
-                
+            ).then(data => {              
                 let userData = {
                     avatar:data.record.avatar,
                     id: data.record.id,
@@ -42,22 +38,22 @@ export default function LoginPage(props:any) {
                     role: data.record.role,
                     email:data.record.email
                 }
-                localStorage.setItem('user', JSON.stringify(userData))
-                setEmail("")
-                setPassword("")
-                router.push(`/${data.record.id}`)
+                localStorage.setItem('user', JSON.stringify(userData));
+                setEmail("");
+                setPassword("");
+                router.push(`/${data.record.id}`);
 
             }).catch(error => {
                 if (error.data.code == 400||error.data.code == 404) {
-                    setErrorMessage("User not found please try again or register")
+                    setErrorMessage("User not found please try again or register");
                 }
                 else {
-                    setErrorMessage("Server error")
+                    setErrorMessage("Server error");
                 }
             })
         }
         else {
-            setErrorMessage(valid.message)
+            setErrorMessage(valid.message);
         }
         
     }
@@ -65,12 +61,12 @@ export default function LoginPage(props:any) {
     const handleShowPassword = (e:any) => {
         e.preventDefault()
         if (showPassword === true) {
-            setShowPassword(false)
-            return
+            setShowPassword(false);
+            return;
         }
         else {
-            setShowPassword(true)
-            return
+            setShowPassword(true);
+            return;
         }
 
     };

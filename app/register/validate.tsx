@@ -6,34 +6,34 @@ export const validate = ({ email, password, confirmPassword, fullName }: any) =>
             
         }
         else {
-            return { validate: false, message: "Invalid Email Format" }
+            return { validate: false, message: "Invalid Email Format" };
         }
     }
     else {
-        return { validate: false, message: "Email can not be empty" }
+        return { validate: false, message: "Email can not be empty" };
     }
 
     if (password == "" || confirmPassword == "") { // validate password
-        return { validate: false, message: "Password and Confirm Password cannot be empty" }
+        return { validate: false, message: "Password and Confirm Password cannot be empty" };
     }
     else if (password.length < 5 || confirmPassword.length < 5) {
-        return { validate: false, message: "Password should at least contain 5 characters" }
+        return { validate: false, message: "Password should at least contain 5 characters" };
     }
-    else if (password!==confirmPassword) {
-        return { validate: false, message: "Password and Confirm Password are not equal " }
+    else if (password !== confirmPassword) {
+        return { validate: false, message: "Password and Confirm Password are not equal " };
     }
     if (fullName !== "") {
         if (/^[a-z ,.'-]+$/i.test(fullName)) {
             
         }
         else {
-            return { validate: false, message: "Invalid Name Format" }
+            return { validate: false, message: "Invalid Name Format" };
         }
         
     }
     else {
-        return { validate: false, message: "Name can not be empty" }
+        return { validate: false, message: "Name can not be empty" };
     }
 
-    return {validate:true,message:""}
-}
+    return { validate: true, message: "" };
+};

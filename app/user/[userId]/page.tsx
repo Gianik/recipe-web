@@ -1,19 +1,20 @@
-
+// server side component
 
 import { PencilSquareIcon,TrashIcon} from "@heroicons/react/24/solid";
 import PocketBase from 'pocketbase';
 import Link from "next/link";
 import Dashboard from "../../dashboard";
 export const revalidate = 10; //time in seconds for the server side component to fetch the data again (to keep it updated)
-async function getUser(userId: string) {
-        const pb = new PocketBase(process.env.PB_LINK);
-        const data = await pb.collection('users').getOne(`${userId}`)
 
-        return data
+async function getUser(userId: string) {// fetch the data
+    const pb = new PocketBase(process.env.PB_LINK);;
+    const data = await pb.collection('users').getOne(`${userId}`);
+
+    return data;
 }
 
-export default async  function  UserPage({ params }: any){
-    const user = await getUser(params.userId)
+export default async  function  UserPage({ params }: any){ // can be async as it is a server side component
+    const user = await getUser(params.userId);
 
     
     return (
@@ -32,11 +33,8 @@ export default async  function  UserPage({ params }: any){
                         <h2 className=" mt-[0px] text-center">Email: {user.email}</h2>
                         <hr className="w-full mt-1" />
                         <h2 className=" mt-[0px] capitalize text-center">Role: {user.role}</h2>
-
                     </div>
                 </div>
             </>
-
-        
       );
     }

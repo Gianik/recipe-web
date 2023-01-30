@@ -23,12 +23,12 @@ function AddUser() {
     const handleShowPassword = (e:any) => {
         e.preventDefault()
         if (showPassword === true) {
-            setShowPassword(false)
-            return
+            setShowPassword(false);
+            return;
         }
         else {
-            setShowPassword(true)
-            return
+            setShowPassword(true);
+            return;
         }
 
     };
@@ -36,22 +36,22 @@ function AddUser() {
     const handleShowConfirmPassword = (e:any) => {
         e.preventDefault()
         if (showConfirmPassword === true) {
-            setShowConfirmPassword(false)
-            return
+            setShowConfirmPassword(false);
+            return;
         }
         else {
-            setShowConfirmPassword(true)
-            return
+            setShowConfirmPassword(true);
+            return;
         }
 
     };
     // handle form submit
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-        e.preventDefault()
-        email.trim()
-        password.trim()
-        confirmPassword.trim()
-        fullName.trim()
+        e.preventDefault();
+        email.trim();
+        password.trim();
+        confirmPassword.trim();
+        fullName.trim();
         let valid: any = validate({ email, password, confirmPassword, fullName })
         if (valid.validate == true) {
             setErrorMessage("")
@@ -63,27 +63,26 @@ function AddUser() {
                 role: 'user',
                 emailVisibility: true
             }).then(data => {
-                console.log(data)
-                setEmail("")
-                setPassword("")
-                setConfirmPassword("")
-                setFullName("")
-                router.push('/adminusers')
+                setEmail("");
+                setPassword("");
+                setConfirmPassword("");
+                setFullName("");
+                router.push('/adminusers');
 
             })
                 .catch(error => {
                     console.log(error.data.code)
                     if (error.data.code == 400) {
-                        setErrorMessage("Email already exists please login or try another email")
+                        setErrorMessage("Email already exists please login or try another email");
                     }
                     else {
-                        setErrorMessage("Server error")
+                        setErrorMessage("Server error");
                     }
 
                 })
 
         } else {
-            setErrorMessage(valid.message)
+            setErrorMessage(valid.message);
         }
     };
       

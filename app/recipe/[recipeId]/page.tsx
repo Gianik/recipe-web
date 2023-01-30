@@ -1,24 +1,24 @@
-
+//server side component
 
 import {  PlusCircleIcon,PencilSquareIcon,TrashIcon} from "@heroicons/react/24/solid";
 import PocketBase from 'pocketbase';
 import Link from "next/link";
 import Dashboard from "../../dashboard";
 export const revalidate = 10;//time in seconds for the server side component to fetch the data again (to keep it updated)
-async function getRecipes(recipeId: string) {
-        const pb = new PocketBase(process.env.PB_LINK);
-        const data = await pb.collection('recipes').getOne(`${recipeId}`)
 
-        return data
-}
+async function getRecipes(recipeId: string) { // fetch data
+    const pb = new PocketBase(process.env.PB_LINK);
+    const data = await pb.collection('recipes').getOne(`${recipeId}`);
 
-export default async  function  RecipePage({ params }: any){
-    const recipe = await getRecipes(params.recipeId)
+    return data;
+};
+
+export default async  function  RecipePage({ params }: any){ // can be async as it is a server side component
+    const recipe = await getRecipes(params.recipeId);
 
     
     return (
             <>
-                {/* <ToastContainer /> */}
                 <Dashboard children={undefined} />
                 <div className="flex mt-2 text-center justify-center">
                     <h2 className="font-bold pl-1 text-3xl mt-2">My Recipes</h2>
@@ -32,11 +32,9 @@ export default async  function  RecipePage({ params }: any){
                         Ingredient List:
                         {recipe.recipe_ingredients.map((x, i) => {
                             return (
-                                // <div className="  justify-center">
                                     <ul key={i} className="grid grid-cols-1 text-left  list-disc list-inside">
                                         <li className="pl-3" >{x.Ingredient}</li>
                                     </ul>
-                                // </div>
                                     );
 
                         })}
@@ -44,10 +42,9 @@ export default async  function  RecipePage({ params }: any){
                         Instructions :
                         {recipe.recipe_instructions.map((x, i) => {
                             return (
-
-                            <ul key={i} className="flex-col text-left    list-disc list-inside">
-                                <li className="pl-3">{x.Instruction}</li>
-                            </ul>
+                                    <ul key={i} className="flex-col text-left    list-disc list-inside">
+                                        <li className="pl-3">{x.Instruction}</li>
+                                    </ul>
                                     );
                             })}
                     </div>

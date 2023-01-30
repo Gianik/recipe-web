@@ -69,14 +69,12 @@ function AddRecipe() {
         recipe_instructions:  instructionList ,
 
         }).then(data => {
-          console.log(data)
-          // toastSuccess('Recipe Added!')
-          router.push(`/${user_id}`)
+          router.push(`/${user_id}`);
         })
-          .catch(error => {
-            console.log(error)
-            toastError('Server Error Please try Again')
-          });
+        .catch(error => {
+            console.log(error);
+            toastError('Server Error Please try Again');
+        });
 
     }
 

@@ -6,11 +6,11 @@ export const validate = ({ email, fullName }: any) => {
             
         }
         else {
-            return { validate: false, message: "Invalid Email Format" }
+            return { validate: false, message: "Invalid Email Format" };
         }
     }
     else {
-        return { validate: false, message: "Email can not be empty" }
+        return { validate: false, message: "Email can not be empty" };
     }
 
     if (fullName !== "") {
@@ -18,13 +18,13 @@ export const validate = ({ email, fullName }: any) => {
             
         }
         else {
-            return { validate: false, message: "Invalid Name Format" }
+            return { validate: false, message: "Invalid Name Format" };
         }
         
     }
     else {
-        return { validate: false, message: "Name can not be empty" }
+        return { validate: false, message: "Name can not be empty" };
     }
 
-    return {validate:true,message:""}
-}
+    return { validate: true, message: "" };
+};

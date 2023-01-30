@@ -8,28 +8,28 @@ import {Cog8ToothIcon} from "@heroicons/react/24/solid";
 import 'react-toastify/dist/ReactToastify.css';
 const SideBar = forwardRef(({ showNav }:any, ref:any) => {
   const router = useRouter();
-  const [userId, setUserId] = useState("")
-  const [role, setRole] = useState("")
+  const [userId, setUserId] = useState("");
+  const [role, setRole] = useState("");
   
 
   useEffect(() => {
     const user = localStorage.getItem('user') || ''
       if (user == "") {
-          router.push('/login')
+        router.push('/login');
       }
-      fetchData()
+    fetchData();
   }, []);
 
   const fetchData = async () => {
-      setUserId(JSON.parse(localStorage.getItem('user') || '').id);
-      setRole(JSON.parse(localStorage.getItem('user') || '').role);
-  }
+    setUserId(JSON.parse(localStorage.getItem('user') || '').id);
+    setRole(JSON.parse(localStorage.getItem('user') || '').role);
+  };
 
   const handleLogout = (e: any) => {
     
     localStorage.removeItem('user')
     location.replace("/login")
-  }
+  };
   
 
   return (
@@ -37,7 +37,7 @@ const SideBar = forwardRef(({ showNav }:any, ref:any) => {
           <div className="flex justify-center mt-6 mb-14">
             <Link href={`/${userId}`} >RECIPE BLOG</Link>
           </div>
-          {role == 'admin' ? (
+          {role == 'admin' ? (// if role is admin thesse are the links
             <div className="flex flex-col divide-y">
               <Link href='/adminrecipes'>
                 <div
@@ -87,7 +87,7 @@ const SideBar = forwardRef(({ showNav }:any, ref:any) => {
                 </div>
             </div>      
     
-          ) : (
+          ) : ( // if not admin only this links will be available
           <div className="flex flex-col divide-y">
             <Link href="/profile">
               <div
