@@ -9,6 +9,7 @@ ___
       <a href="#about-the-project">About The Project</a>
       <ul>
         <li><a href="#built-with">Built With</a></li>
+        <li><a href="#reason-for">Reason for</a></li>
       </ul>
     </li>
     <li>
@@ -43,14 +44,30 @@ This project is just a simple project designed to have a javascript framework wo
 
 Thank you.
 
+
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+### Built With
+
+This project is built with using the following technologies:
+
+* [![Next][Next.js]][Next-url]
+* [![Pocketbase][PocketBase]][Pocketbase-url]
+* [![TailwindCSS][Tailwind CSS]][Tailwind CSS-url]
+
+### Reason for
+
 
 <!-- Markdown Links and images -->
 [PocketBase]:https://img.shields.io/static/v1?style=for-the-badge&message=PocketBase&color=222222&logo=PocketBase&logoColor=B8DBE4&label=
+[PocketBase-url]: https://pocketbase.io/
 
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [Next-url]: https://nextjs.org/
 
 [Tailwind CSS]:https://img.shields.io/static/v1?style=for-the-badge&message=Tailwind+CSS&color=222222&logo=Tailwind+CSS&logoColor=06B6D4&label=
+[Tailwind CSS-url]:https://tailwindcss.com/
 
 [Headless UI]:(https://img.shields.io/static/v1?style=for-the-badge&message=Headless+UI&color=222222&logo=Headless+UI&logoColor=66E3FF&label=)
