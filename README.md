@@ -20,8 +20,10 @@ ___
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
+    <li><a href="#api-sample">API Sample</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
@@ -44,10 +46,7 @@ It is also using the experimental nextjs 13 new app directory where by default a
 
 Thank you.
 
-
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
+<p align="left">(<a href="#readme-top">back to top</a>)</p>
 
 ### Built With
 
@@ -57,10 +56,13 @@ This project is built with using the following technologies:
 * [![Pocketbase][PocketBase]][Pocketbase-url]
 * [![TailwindCSS][Tailwind CSS]][Tailwind CSS-url]
 
+<p align="left">(<a href="#readme-top">back to top</a>)</p>
+
 ### Reason for
   
 The reason for choosing the technologies mentioned above is that I want to use nextjs a react framework with tailwind css and pocketbase a self host database server to have fast and light project.
 
+<p align="left">(<a href="#readme-top">back to top</a>)</p>
 ### Prerequisites
 
 The prerequisites for this project:
@@ -68,6 +70,8 @@ The prerequisites for this project:
   ```sh
   Node.js 14.6.0 or higher
   ```
+
+<p align="left">(<a href="#readme-top">back to top</a>)</p>
 
 ### Installation
 
@@ -91,9 +95,31 @@ The prerequisites for this project:
    ```js
    PB_LINK = 'your pocketbase link'  
    Sample:'http://127.0.0.1:8090'
+    ```
 
-## Usage
-    Sample Use Cases will be placed here along with a short explanation.
+<p align="left">(<a href="#readme-top">back to top</a>)</p>
+
+### Usage
+
+Sample Use Cases will be placed here along with a short explanation.
+
+<p align="left">(<a href="#readme-top">back to top</a>)</p>
+
+### API Sample
+
+Sample of the API used and a short explanation will be provided here.
+
+<p align="left">(<a href="#readme-top">back to top</a>)</p>
+
+### Contacts
+
+My Email: paoloduguran@gmail.com
+
+Project Repository: [https://github.com/Gianik/recipe-web.git](https://github.com/Gianik/recipe-web.git)
+
+<p align="left">(<a href="#readme-top">back to top</a>)</p>
+
+
 
 <!-- Markdown Links and images -->
 [PocketBase]:https://img.shields.io/static/v1?style=for-the-badge&message=PocketBase&color=222222&logo=PocketBase&logoColor=B8DBE4&label=
