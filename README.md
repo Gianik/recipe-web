@@ -41,6 +41,7 @@ Features:
 * Mobile Responsive.
 
 This project is just a simple project designed to have a javascript framework work with a light database like pocketbase.
+It is also using the experimental nextjs 13 new app directory where by default all pages are server side unless stated to be client.
 
 Thank you.
 
@@ -59,6 +60,15 @@ This project is built with using the following technologies:
 
 ### Reason for
 
+The reason for choosing the technologies mentioned above is that I want to use nextjs a react framework with tailwind css and pocketbase a self host database server to have fast and light project.
+
+### Prerequisites
+
+The prerequisites for this project:
+
+  ```sh
+  Node.js 14.6.0 or higher
+  ```
 
 <!-- Markdown Links and images -->
 [PocketBase]:https://img.shields.io/static/v1?style=for-the-badge&message=PocketBase&color=222222&logo=PocketBase&logoColor=B8DBE4&label=
