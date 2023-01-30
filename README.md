@@ -264,6 +264,6 @@ I would like to acknowledge the other minor packages used in the project.
 [Headless UI]:https://img.shields.io/static/v1?style=for-the-badge&message=Headless+UI&color=222222&logo=Headless+UI&logoColor=66E3FF&label=
 [Headless UI-url]: https://headlessui.com/
 
-[terminal-screenshot]: readme_images/pocketbase_terminal.png
-[login-screenshot]: readme_images/Login_sample.png
-[registration-screenshot]: readme_images/Register_Sample.png
+[terminal-screenshot]: readme_images/pocketbase_terminal.PNG
+[login-screenshot]: readme_images/Login_sample.PNG
+[registration-screenshot]: readme_images/Register_Sample.PNG
