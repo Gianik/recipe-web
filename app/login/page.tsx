@@ -91,7 +91,7 @@ export default function LoginPage(props:any) {
                             <h6 className="text-center break-normal text-red-600 ">{ errorMessage }</h6>
                         </div>
 
-                        <form onSubmit={handleSubmit} className="flex flex-col gap-4 mt-2">
+                        <form onSubmit={handleSubmit} className="flex flex-col gap-4 mt-2" noValidate>
                         <input
                                 type="email"
                                 className="p-1 mt-4 rounded-lg text-black"    
