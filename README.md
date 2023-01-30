@@ -126,7 +126,7 @@ Notes:
 * Please check the Pocketbase link in the terminal to make sure the api calls will be proper.
 * if the images are not displaying properly you can find them in the folder 'readme_images'
 
-[![Pocketbase Terminal Screen Shot][terminal-screenshot]
+![Pocketbase Terminal Screen Shot][terminal-screenshot]
 
 
 Sample Login and Registration
