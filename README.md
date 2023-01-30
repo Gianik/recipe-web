@@ -122,6 +122,7 @@ The prerequisites for this project:
 Sample Use Cases will be placed here along with a short explanation.
 
 Notes:
+
 * It is not advisable to access the main pages without logging in as it can break the program.
 * Please check the Pocketbase link in the terminal to make sure the api calls will be proper.
 * if the images are not displaying properly you can find them in the folder 'readme_images'
@@ -273,4 +274,4 @@ I would like to acknowledge the other minor packages used in the project.
 [terminal-screenshot]: readme_images/pocketbase_terminal.PNG
 [login-screenshot]: readme_images/Login_Sample.PNG
 [registration-screenshot]: readme_images/Register_Sample.PNG
-[my-recipes-screenshot]: readme_images/My_Recipes_Sample.PNG
+[my-recipes-screenshot]: readme_images/My_Recipes_Sample.png
