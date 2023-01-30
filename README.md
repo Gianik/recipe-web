@@ -96,6 +96,8 @@ The prerequisites for this project:
 4. Enter the Pocketbase link `.env.local`
 
    ```js
+   // only applicable to server side rendered pages
+   // client side atm is hard coded
    PB_LINK = 'your pocketbase link'  
    Sample:'http://127.0.0.1:8090'
     ```
@@ -119,7 +121,13 @@ The prerequisites for this project:
 
 Sample Use Cases will be placed here along with a short explanation.
 
-Tips: You can use 
+Notes:
+* It is not advisable to access the main pages without logging in as it can break the program.
+* Please check the Pocketbase link in the terminal to make sure the api calls will be proper.
+
+<img src="readme_images/pocketbase_terminal.png" alt="Logo" width="80" height="80">
+
+
 
 <p align="left">(<a href="#readme-top">back to top</a>)</p>
 
@@ -127,10 +135,12 @@ Tips: You can use
 
 Samples of the API used and a short explanation will be provided here.
 
+Note: Some API call link are hard coded as this is due to nextjs rendering on server side by default and cannot access environment variables in the client.The experimental app directory might be a factor on this.
+
 * Sample of a Create API
 
      ```js
-            const pb = new PocketBase(process.env.PB_LINK);
+            const pb = new PocketBase('http://127.0.0.1:8090');
             await pb.collection('users').create({
                 name: fullName,
                 email: email,
@@ -148,7 +158,7 @@ Samples of the API used and a short explanation will be provided here.
 * Sample Auth API
   
     ```js
-            const pb = new PocketBase(process.env.PB_LINK);
+            const pb = new PocketBase('http://127.0.0.1:8090');
             await pb.collection('users').authWithPassword(
                 email,
                 password,
@@ -190,7 +200,7 @@ Samples of the API used and a short explanation will be provided here.
 * Sample Update API
 
     ```js
-        const pb = new PocketBase(process.env.PB_LINK);
+        const pb = new PocketBase('http://127.0.0.1:8090');
         await pb.collection('recipes').update(`${params.params.editrecipeId}`,{
         recipe_name: recipeName,
         recipe_ingredients: ingredientlist ,
@@ -205,7 +215,7 @@ Samples of the API used and a short explanation will be provided here.
 * Sample Delete API
   
   ```js
-    const pb = new PocketBase(process.env.PB_LINK);
+    const pb = new PocketBase('http://127.0.0.1:8090');
     await pb.collection('users').delete(`${params.params.userId}`)
 
     // The delete API is straghtforward you just need to specify the collection
