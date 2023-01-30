@@ -265,5 +265,5 @@ I would like to acknowledge the other minor packages used in the project.
 [Headless UI-url]: https://headlessui.com/
 
 [terminal-screenshot]: readme_images/pocketbase_terminal.PNG
-[login-screenshot]: readme_images/Login_sample.PNG
+[login-screenshot]: readme_images/Login_Sample.PNG
 [registration-screenshot]: readme_images/Register_Sample.PNG
