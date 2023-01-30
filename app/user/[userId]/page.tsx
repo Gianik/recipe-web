@@ -1,6 +1,6 @@
 
 
-import {  PlusCircleIcon,PencilSquareIcon,TrashIcon} from "@heroicons/react/24/solid";
+import { PencilSquareIcon,TrashIcon} from "@heroicons/react/24/solid";
 import PocketBase from 'pocketbase';
 import Link from "next/link";
 import Dashboard from "../../dashboard";

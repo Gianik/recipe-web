@@ -8,13 +8,12 @@ import { useRouter } from "next/navigation"
 import PocketBase from 'pocketbase';
 import { validate } from '../../addrecipe/validate';
 import { toastError, toastSuccess } from '../../../components/toast';
-import { toast, ToastContainer } from 'react-toastify';
+import {  ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 function EditRecipe(params:any) {
     const router = useRouter();
-    const pb = new PocketBase('http://127.0.0.1:8090');
+    const pb = new PocketBase(process.env.PB_LINK);
     const searchParams = useSearchParams();
-    // fetchData()
     const [ingredientlist, setIngredientlist] = useState([{ Ingredient: "" }]);
     const [recipeName,setRecipeName] = useState("")
     const [instructionList, setInstructionList] = useState([{ Instruction: "" }]);

@@ -5,7 +5,6 @@ import PocketBase from 'pocketbase';
 
 import Link from "next/link";
 import Dashboard from "../dashboard";
-import { toast, ToastContainer } from 'react-toastify';
 async function getRecipes(authorId: string) {
         const pb = new PocketBase(process.env.PB_LINK);
         const data = await pb.collection('recipes').getFullList(30, {

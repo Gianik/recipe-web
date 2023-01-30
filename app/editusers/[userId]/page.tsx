@@ -3,13 +3,13 @@ import React, { FormEvent, useState,useEffect } from "react";
 import Dashboard from "../../dashboard";
 import { useRouter } from "next/navigation"
 import PocketBase from 'pocketbase';
-import { toastError, toastSuccess } from '../../../components/toast';
+import { toastError } from '../../../components/toast';
 import { validate } from '../../profile/validate'
-import { toast, ToastContainer } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 function EditUser(params:any) {
     const router = useRouter();
-    const pb = new PocketBase('http://127.0.0.1:8090');
+    const pb = new PocketBase(process.env.PB_LINK);
     const user = localStorage.getItem('user') || ''
     const [email, setEmail] = useState("");
     const [fullName, setFullName] = useState("");

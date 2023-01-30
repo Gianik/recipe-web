@@ -13,7 +13,7 @@ import { toastSuccess } from "../../components/toast";
 export default function LoginPage(props:any) {
 
     const router = useRouter();
-    const pb = new PocketBase('http://127.0.0.1:8090');
+    const pb = new PocketBase(process.env.PB_LINK);
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [showPassword, setShowPassword] = useState(false)

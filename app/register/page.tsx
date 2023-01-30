@@ -12,7 +12,7 @@ import 'react-toastify/dist/ReactToastify.css';
 export default function Register() {
 
     const router = useRouter();
-    const pb = new PocketBase('http://127.0.0.1:8090');
+    const pb = new PocketBase(process.env.PB_LINK);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword,setConfirmPassword] = useState("")
@@ -60,9 +60,10 @@ export default function Register() {
 
                 })
 
-        } else {
-            setErrorMessage(valid.message)
         }
+        else {
+            setErrorMessage(valid.message)
+            }   
 
     };
     //handle showPassword State

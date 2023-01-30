@@ -1,5 +1,5 @@
 'use client'
-
+                                                                                                                                                                                                                                                                                                                                                                                  
 import Dashboard from "../../dashboard";
 import { useRouter } from "next/navigation"
 import PocketBase from 'pocketbase';
@@ -8,11 +8,9 @@ import {  ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 function DeleteRecipe(params:any) {
     const router = useRouter();
-    const pb = new PocketBase('http://127.0.0.1:8090');    
+    const pb = new PocketBase(process.env.PB_LINK);    
 
-    // console.log(params.params.recipeId)
 
-      // handle input change for Ingredients and Instructions
 
   //handle submition of form
   const handleDelete = async (e:any) => {

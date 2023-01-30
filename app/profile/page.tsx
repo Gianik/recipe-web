@@ -9,7 +9,7 @@ import { validate } from "./validate";
 import 'react-toastify/dist/ReactToastify.css';
 function AddRecipe(params:any) {
     const router = useRouter();
-    const pb = new PocketBase('http://127.0.0.1:8090');
+    const pb = new PocketBase(process.env.PB_LINK);
     const user = localStorage.getItem('user') || ''
     console.log(user)
     if (user == "") {
