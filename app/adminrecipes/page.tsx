@@ -5,7 +5,7 @@ import PocketBase from 'pocketbase';
 
 import Link from "next/link";
 import Dashboard from "../dashboard";
-
+export const revalidate = 10; //time in seconds for the server side component to fetch the data again (to keep it updated)
 async function getRecipes() {
         const pb = new PocketBase(process.env.PB_LINK);
         const data = await pb.collection('recipes').getFullList(30, {
