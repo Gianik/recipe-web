@@ -12,7 +12,7 @@ async function getUser(userId: string) {
         return data
 }
 
-export default async  function  HomePage({ params }: any){
+export default async  function  UserPage({ params }: any){
     const user = await getUser(params.userId)
 
     

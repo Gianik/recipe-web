@@ -15,7 +15,7 @@ async function getRecipes(recipeId: string) {
         return data
 }
 
-export default async  function  HomePage({ params }: any){
+export default async  function  RecipePage({ params }: any){
     const recipe = await getRecipes(params.recipeId)
 
     

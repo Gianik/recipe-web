@@ -7,7 +7,7 @@ import { toastError, toastSuccess } from '../../../components/toast';
 import { validate } from '../../profile/validate'
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-function AddRecipe(params:any) {
+function EditUser(params:any) {
     const router = useRouter();
     const pb = new PocketBase('http://127.0.0.1:8090');
     const user = localStorage.getItem('user') || ''
@@ -105,4 +105,4 @@ function AddRecipe(params:any) {
 
 
 
-export default AddRecipe
+export default EditUser
