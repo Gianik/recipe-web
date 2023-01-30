@@ -146,11 +146,13 @@ Sample My Recipes
 On the main pages sidebar links are restricted by role admin can access more links that can view,edit and delete all recipes and users.
 
 Sample Admin Sidebar
+<br/>
 ![Sidebar admin Screen Shot][sidebar-admin-screenshot]
 
 Sample User Sidebar
-![Sidebar user Screen Shot][sidebar-user-screenshot]
 
+![Sidebar user Screen Shot][sidebar-user-screenshot]
+<br/>
 <p align="left">(<a href="#readme-top">back to top</a>)</p>
 
 ## API Sample
