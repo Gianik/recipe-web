@@ -6,7 +6,7 @@ import PocketBase from 'pocketbase';
 import { toastError } from '../../../components/toast';
 import {  ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-function AddRecipe(params:any) {
+function DeleteRecipe(params:any) {
     const router = useRouter();
     const pb = new PocketBase('http://127.0.0.1:8090');    
 
@@ -59,4 +59,4 @@ function AddRecipe(params:any) {
 
 
 
-export default AddRecipe
+export default DeleteRecipe
